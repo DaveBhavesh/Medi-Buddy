@@ -14,10 +14,8 @@ export default function PmcChallenge() {
     <section id="challenge" className="bg-white py-16 sm:py-24 lg:py-28">
       <div className="w-full px-[10px]">
         <div className="w-full">
-          <h2 className="text-[2.6rem] font-black leading-[0.95] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
-            {titleTop}
-            <br />
-            <span className="text-amber-400">{titleAccent}</span>
+          <h2 className="whitespace-nowrap text-[clamp(1.4rem,6.6vw,4.5rem)] font-black leading-none tracking-[-0.05em]">
+            {titleTop} <span className="text-amber-400">{titleAccent}</span>
           </h2>
 
           <div className="mt-8 grid gap-x-8 lg:mt-10 lg:grid-cols-12">

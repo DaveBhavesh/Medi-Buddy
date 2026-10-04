@@ -6,6 +6,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Anchor links (#pmc, #videos...) stop below the fixed header instead of under it */
+  scroll-padding-top: 5rem;
   /* Stop iPhone from inflating text in landscape */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -36,6 +38,72 @@ a {
 
 button {
   cursor: pointer;
+}
+
+/* Balanced headings and tidy paragraph endings */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+}
+
+/* One clear keyboard-focus ring everywhere */
+:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 3px;
+  border-radius: 0.375rem;
+}
+
+/* Press feedback + smooth hover on every button and button-like link */
+button,
+a[class*="rounded-full"] {
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease;
+}
+button:not(:disabled):active,
+a[class*="rounded-full"]:active {
+  transform: scale(0.97);
+}
+@media (hover: hover) {
+  button:not(:disabled):hover,
+  a[class*="rounded-full"]:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Footer + list links */
+footer a {
+  transition: color 0.2s ease;
+}
+footer a:hover {
+  color: #fbbf24;
+}
+
+/* Gentle fade-up as each section scrolls into view.
+   Progressive enhancement: browsers without scroll-driven animations just show everything. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main > section:not(:first-child) > div,
+    main > section:not(:first-child) > img + div {
+      animation: section-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+@keyframes section-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 ::selection {
