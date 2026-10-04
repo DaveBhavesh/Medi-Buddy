@@ -34,8 +34,24 @@ Reference them in code as `/assets/<file>`.
 ```
 index.html
 vercel.json
-src/main.jsx      entry
-src/App.jsx       all sections (Header, Hero, Explore, ..., Footer)
-src/index.css     Tailwind + global styles
-public/assets/    all images
+src/main.jsx                 entry
+src/App.jsx                  page assembly + sections not yet split out
+src/index.css                Tailwind + global styles + carousel CSS
+src/data/content.js          all copy, image names, YouTube video id
+src/components/Header.jsx
+src/components/Carousel.jsx       reusable slider (scroll-snap, 10px gap, arrows, drag, touch)
+src/components/HeroVideoCard.jsx  YouTube Short: hover = play, leave = pause, tap on touch
+src/sections/Hero.jsx
+src/sections/Explore.jsx          "hunger" heading + image slider
+src/sections/PmcChallenge.jsx
+src/sections/WhyMeditation.jsx
+src/sections/Testimonials.jsx
+public/assets/               all images
 ```
+
+## Common edits
+
+- Change the hero video: `heroVideo.id` in `src/data/content.js`.
+- Change the name/text in "Why Meditation": `whyMeditation` in `src/data/content.js`.
+- Challenge copy, chips and button: `challenge` in `src/data/content.js`.
+- Add a testimonial or explore card: add an item to `testimonials` / `exploreCards`.

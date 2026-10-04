@@ -1,149 +1,10 @@
-import { useEffect, useState } from "react";
-
-const navItems = [
-  "Meditation",
-  "Patriji",
-  "PMC",
-  "Videos",
-  "Articles",
-  "Explore",
-  "Contact",
-];
-
-const exploreCards = [
-  { title: "About the PSSM", image: "img-000.jpg" },
-  { title: "Frequently Asked Questions", image: "img-001.jpg" },
-  { title: "Anapanasati Meditation", image: "img-003.jpg" },
-  { title: "About Patriji", image: "img-007.jpg" },
-  { title: "Pyramid Energy", image: "img-008.jpg" },
-  { title: "Patriji's Concepts", image: "img-012.jpg" },
-];
-
-const books = [
-  { name: "Yogananda", image: "img-026.jpg" },
-  { name: "Lobsang Rampa", image: "img-040.jpg" },
-  { name: "Brian Weiss", image: "img-035.jpg" },
-  { name: "Louise Hay", image: "img-038.jpg" },
-];
-
-const testimonials = [
-  ["Health", "img-016.jpg", "Meditation supports a calmer mind and a healthier, more balanced life."],
-  ["Students", "img-015.jpg", "Meditation offers profound benefits for memory, focus, confidence, and much more."],
-  ["Inner peace", "img-011.jpg", "Wisdom from senior masters for living with greater awareness and joy."],
-];
-
-const pillars = [
-  "Anapanasati meditation",
-  "Benefits of meditation",
-  "18 guiding principles",
-  "Science of meditation",
-  "Mind & meditation",
-  "Health & meditation",
-  "Events & workshops",
-  "Patriji quotes",
-];
-
-function ArrowIcon() {
-  return (
-    <span aria-hidden="true" className="shrink-0">
-      ↗
-    </span>
-  );
-}
-
-function Header() {
-  const [open, setOpen] = useState(false);
-
-  // Close the mobile menu with Escape, and when the viewport grows to desktop size.
-  useEffect(() => {
-    const onKey = (event) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-    const mq = window.matchMedia("(min-width: 1024px)");
-    const onChange = (event) => {
-      if (event.matches) setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    mq.addEventListener("change", onChange);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      mq.removeEventListener("change", onChange);
-    };
-  }, []);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-20 pt-[env(safe-area-inset-top)] text-white">
-      <div className="mx-auto flex max-w-[1760px] items-center justify-between px-3 py-4 sm:px-4 sm:py-5">
-        <a href="#top" className="flex items-center" aria-label="PMC World home">
-          <img
-            src="/assets/pmc-world-logo.png"
-            alt="PMC World"
-            width="64"
-            height="64"
-            className="h-14 w-14 object-contain sm:h-16 sm:w-16"
-          />
-        </a>
-        <nav
-          className="hidden items-center gap-7 text-[13px] font-semibold lg:flex"
-          aria-label="Primary"
-        >
-          {navItems.map((item) => (
-            <a
-              key={item}
-              className="transition hover:text-amber-300"
-              href={`#${item.toLowerCase()}`}
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
-        <div className="hidden items-center gap-3 lg:flex">
-          <button className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold backdrop-blur">
-            Join the Movement
-          </button>
-          <button className="rounded-full bg-amber-400 px-4 py-2 text-xs font-extrabold text-black">
-            Donate
-          </button>
-        </div>
-        <button
-          className="grid h-11 w-11 place-items-center rounded-full border border-white/25 lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span className="text-xl leading-none">{open ? "×" : "☰"}</span>
-        </button>
-      </div>
-      {open && (
-        <nav
-          id="mobile-menu"
-          aria-label="Mobile"
-          className="mx-3 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl bg-neutral-950/95 p-5 shadow-2xl sm:mx-4 lg:hidden"
-        >
-          {navItems.map((item) => (
-            <a
-              key={item}
-              className="block border-b border-white/10 py-3 text-sm font-semibold"
-              href={`#${item.toLowerCase()}`}
-              onClick={() => setOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-          <div className="mt-4 flex gap-3">
-            <button className="flex-1 rounded-full border border-white/25 bg-white/10 px-4 py-3 text-xs font-bold">
-              Join the Movement
-            </button>
-            <button className="flex-1 rounded-full bg-amber-400 px-4 py-3 text-xs font-extrabold text-black">
-              Donate
-            </button>
-          </div>
-        </nav>
-      )}
-    </header>
-  );
-}
+import ArrowIcon from "./components/ArrowIcon";
+import Explore from "./sections/Explore";
+import Hero from "./sections/Hero";
+import PmcChallenge from "./sections/PmcChallenge";
+import Testimonials from "./sections/Testimonials";
+import WhyMeditation from "./sections/WhyMeditation";
+import { books, pillars } from "./data/content";
 
 function Footer() {
   return (
@@ -177,7 +38,7 @@ function Footer() {
         <div>
           <h3 className="font-black text-white">Subscribe</h3>
           <p className="mt-4 text-sm">Join millions of seekers around the world.</p>
-          <button className="mt-5 rounded-full border border-white/30 px-5 py-2 text-sm font-black text-white">
+          <button className="mt-5 min-h-10 rounded-full border border-white/30 px-5 py-2 text-sm font-black text-white">
             Subscribe now
           </button>
         </div>
@@ -192,113 +53,13 @@ function Footer() {
 function App() {
   return (
     <main id="top" className="overflow-hidden bg-white text-[#17191a]">
-      {/* Hero */}
-      <section className="relative bg-[#1c2120] pb-16 pt-28 text-center text-white sm:pb-24 sm:pt-36">
-        <Header />
-        <div className="relative z-10 mx-auto max-w-4xl px-5">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-amber-300 sm:text-xs sm:tracking-[0.28em]">
-            Awaken. Meditate. Transform.
-          </p>
-          <h1 className="text-4xl font-black leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
-            Awaken your
-            <br />
-            inner master
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
-            Join the Global PSSM movement and transform your life through Pyramid Meditation with
-            guidance from meditation masters and spiritual scientists.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a
-              href="#meditation"
-              className="rounded-full bg-white px-6 py-3 text-sm font-extrabold text-black"
-            >
-              Join the Movement
-            </a>
-            <a
-              href="#explore"
-              className="rounded-full border border-white/30 px-6 py-3 text-sm font-extrabold text-white"
-            >
-              Learn Meditation
-            </a>
-          </div>
-        </div>
-        <div className="mx-auto mt-12 max-w-5xl px-4">
-          <img
-            src="/assets/img-004.jpg"
-            alt="Free 21-day meditation challenge with Patriji"
-            fetchPriority="high"
-            decoding="async"
-            className="w-full rounded-2xl shadow-2xl shadow-black/40"
-          />
-        </div>
-      </section>
+      <Hero />
 
-      {/* Explore */}
-      <section id="explore" className="py-16 sm:py-24">
-        <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
-          <h2 className="max-w-xl text-3xl font-black leading-tight tracking-[-0.04em] sm:text-5xl">
-            Do you have a hunger to increase the quality of your life?
-          </h2>
-          <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-3">
-            {exploreCards.map((card) => (
-              <a
-                href="#pmc"
-                key={card.title}
-                className="group relative aspect-[1.18] overflow-hidden rounded-lg bg-neutral-900"
-              >
-                <img
-                  src={`/assets/${card.image}`}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-transparent" />
-                <span className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-2 text-xs font-black uppercase leading-tight text-white min-[420px]:text-sm sm:bottom-4 sm:left-4 sm:right-4 sm:text-lg lg:text-2xl lg:leading-none">
-                  <span>{card.title}</span> <ArrowIcon />
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Explore />
 
-      {/* Why meditation */}
-      <section id="meditation" className="bg-[#111314] py-16 text-white sm:py-28">
-        <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
-          <h2 className="text-3xl font-black tracking-tight sm:text-5xl">Why Meditation?</h2>
-          <div className="mt-10 grid items-center gap-10 md:grid-cols-[1.35fr_1fr]">
-            <img
-              src="/assets/img-014.jpg"
-              alt="A person meditating inside a glowing pyramid"
-              loading="lazy"
-              decoding="async"
-              className="aspect-[1.25] h-full w-full rounded-2xl object-cover"
-            />
-            <div>
-              <p className="text-sm leading-6 text-white/60">
-                Experience clarity, joy, and spiritual evolution through daily meditation.
-              </p>
-              <h3 className="mt-4 text-4xl font-black leading-none tracking-[-0.04em]">
-                Why
-                <br />
-                Meditation?
-              </h3>
-              <p className="mt-5 max-w-md leading-7 text-white/70">
-                Awaken the mind, heal the body, and connect with your true self. Meditation is a
-                simple, natural path to balance and inner mastery.
-              </p>
-              <a
-                href="#be-a-meditator"
-                className="mt-7 inline-flex rounded-full bg-amber-400 px-5 py-3 text-sm font-black text-black"
-              >
-                Learn more
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PmcChallenge />
+
+      <WhyMeditation />
 
       {/* PMC */}
       <section id="pmc" className="py-16 sm:py-28">
@@ -344,46 +105,7 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="bg-[#111314] py-16 text-white sm:py-28">
-        <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">
-                Real stories
-              </p>
-              <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight sm:text-5xl">
-                Transformative Testimonials from Senior Masters
-              </h2>
-            </div>
-            <button
-              aria-label="Next testimonials"
-              className="h-12 w-12 rounded-full border border-white/25 text-2xl"
-            >
-              →
-            </button>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {testimonials.map(([title, image, copy]) => (
-              <article key={title} className="overflow-hidden rounded-2xl bg-white text-black">
-                <img
-                  src={`/assets/${image}`}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-                <div className="p-5 sm:p-6">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-600">
-                    {title}
-                  </p>
-                  <p className="mt-3 text-lg font-bold leading-snug lg:text-xl">{copy}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* Pillars */}
       <section className="relative isolate overflow-hidden py-16 text-white sm:py-28">
@@ -679,7 +401,7 @@ function App() {
                     Master video {index + 1}
                   </p>
                   <h3 className="mt-1 text-2xl font-black sm:mt-2 sm:text-3xl">{title}</h3>
-                  <button className="mt-3 rounded-full bg-white px-5 py-2 text-xs font-black text-black sm:mt-5">
+                  <button className="mt-3 min-h-10 rounded-full bg-white px-5 py-2 text-xs font-black text-black sm:mt-5">
                     Learn more
                   </button>
                 </div>
