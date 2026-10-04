@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-20 pt-[env(safe-area-inset-top)] text-white">
-      <div className="mx-auto flex max-w-[1760px] items-center justify-between px-3 py-4 sm:px-4 sm:py-5">
+      <div className="flex w-full items-center justify-between px-[10px] py-4 sm:py-5">
         <a href="#top" className="flex items-center" aria-label="PMC World home">
           <img
             src="/assets/pmc-world-logo.png"
@@ -69,7 +69,7 @@ export default function Header() {
         <nav
           id="mobile-menu"
           aria-label="Mobile"
-          className="mx-3 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl bg-neutral-950/95 p-5 shadow-2xl sm:mx-4 lg:hidden"
+          className="mx-[10px] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl bg-neutral-950/95 p-5 shadow-2xl lg:hidden"
         >
           {navItems.map((item) => (
             <a

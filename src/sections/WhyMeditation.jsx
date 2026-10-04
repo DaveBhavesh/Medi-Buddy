@@ -15,27 +15,29 @@ export default function WhyMeditation() {
       className="relative isolate overflow-hidden bg-gradient-to-br from-[#0a3a66] via-[#0e4a80] to-[#135a96] text-white"
       aria-labelledby="why-meditation-heading"
     >
-      <div className="mx-auto max-w-[1760px] px-4 pt-14 sm:pt-20 lg:pt-24">
+      <div className="w-full px-4 pt-14 sm:pt-20 lg:pt-24">
         <h2
           id="why-meditation-heading"
-          className="text-5xl font-black leading-none tracking-[-0.045em] sm:text-6xl lg:text-7xl xl:text-8xl"
+          className="text-[2.5rem] font-black leading-none tracking-[-0.045em] min-[400px]:text-5xl sm:text-6xl lg:text-7xl xl:text-8xl"
         >
           Why <span className="text-amber-300">Meditation?</span>
         </h2>
       </div>
 
-      <div className="mt-6 lg:mt-8 lg:grid lg:grid-cols-[58%_42%]">
-        <div className="relative lg:min-h-[640px]">
+      <div className="mt-6 lg:mt-8 lg:grid lg:grid-cols-[54%_46%] lg:items-center">
+        <div className="relative">
           <img
             src={`/assets/${image}`}
             alt={imageAlt}
+            width="1600"
+            height="1439"
             loading="lazy"
             decoding="async"
-            className="why-photo block aspect-[1.1] w-full object-cover object-top sm:aspect-[1.45] lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:object-[50%_30%]"
+            className="why-photo block h-auto w-full"
           />
         </div>
 
-        <div className="px-4 pb-14 pt-6 sm:pb-16 lg:py-16 lg:pl-0 lg:pr-[4vw]">
+        <div className="px-[10px] pb-14 pt-6 sm:pb-16 lg:py-10 lg:pl-0 lg:pr-[10px]">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/75">
             {honorific}
           </p>

@@ -5,7 +5,7 @@ import { exploreCards } from "../data/content";
 export default function Explore() {
   return (
     <section id="explore" className="py-16 sm:py-24">
-      <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
+      <div className="w-full px-[10px]">
         {/* One line from tablet up (font scales with the viewport); wraps naturally on phones. */}
         <h2 className="text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl md:whitespace-nowrap md:text-[clamp(1.4rem,3.1vw,3.25rem)]">
           Do you have a hunger to increase the quality of your life?
@@ -20,7 +20,7 @@ export default function Explore() {
             <a
               key={card.title}
               href="#pmc"
-              className="group relative block aspect-[1.18] overflow-hidden rounded-lg bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+              className="group relative block aspect-[3/2] overflow-hidden rounded-lg bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
             >
               <img
                 src={`/assets/${card.image}`}

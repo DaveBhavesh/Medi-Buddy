@@ -4,10 +4,10 @@ import { heroVideo } from "../data/content";
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#1c2120] pb-32 text-white md:pb-16 lg:pb-0">
+    <section className="relative bg-[#1c2120] pb-20 text-white lg:pb-0">
       <Header />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-5 pb-12 pt-28 text-center sm:pb-16 sm:pt-36">
+      <div className="relative z-10 mx-auto max-w-4xl px-[10px] pb-12 pt-28 text-center sm:pb-16 sm:pt-36">
         <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-amber-300 sm:text-xs sm:tracking-[0.28em]">
           Awaken. Meditate. Transform.
         </p>
@@ -37,23 +37,22 @@ export default function Hero() {
       </div>
 
       {/*
-        Full-bleed hero image. The 7/4 ratio matches the artwork, so nothing is cropped
-        on normal screens; max-h + object-cover only kicks in on very tall/wide windows.
-        Below `lg` the video card hangs over the bottom edge so it never covers the poster text.
+        Full-bleed hero image shown at its own aspect ratio (no height cap, no cropping).
+        Below `lg` the square video card hangs half over the bottom edge so it never covers
+        the poster text; from `lg` up it sits inside the empty bottom-right corner of the poster.
       */}
       <div className="relative w-full">
-        <div className="relative aspect-[7/4] max-h-[92svh] w-full overflow-hidden bg-[#2a1f3d]">
-          <img
-            src="/assets/img-004.jpg"
-            alt="Free 21-day meditation challenge with Patriji"
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-[30%_center]"
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
-        </div>
+        <img
+          src="/assets/img-004.jpg"
+          alt="Free 21-day meditation challenge with Patriji"
+          width="1400"
+          height="798"
+          fetchPriority="high"
+          decoding="async"
+          className="block h-auto w-full"
+        />
 
-        <div className="absolute -bottom-28 right-3 z-10 w-[clamp(96px,8.8vw,170px)] sm:right-6 md:-bottom-14 lg:bottom-6">
+        <div className="absolute bottom-0 right-[10px] z-10 w-[clamp(112px,14vw,260px)] translate-y-1/2 lg:bottom-[3%] lg:translate-y-0">
           <HeroVideoCard videoId={heroVideo.id} title={heroVideo.title} />
         </div>
       </div>

@@ -4,7 +4,7 @@ import { testimonials } from "../data/content";
 export default function Testimonials() {
   return (
     <section className="bg-[#111314] py-16 text-white sm:py-28">
-      <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
+      <div className="w-full px-[10px]">
         <div>
           <p className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">
             Real stories
@@ -31,7 +31,7 @@ export default function Testimonials() {
                 loading="lazy"
                 decoding="async"
                 draggable="false"
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-[3/2] w-full object-cover object-[50%_25%]"
               />
               <div className="flex-1 p-5 sm:p-6">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-600">

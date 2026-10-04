@@ -12,8 +12,8 @@ export default function PmcChallenge() {
 
   return (
     <section id="challenge" className="bg-white py-16 sm:py-24 lg:py-28">
-      <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
-        <div className="mx-auto max-w-[1280px]">
+      <div className="w-full px-[10px]">
+        <div className="w-full">
           <h2 className="text-[2.6rem] font-black leading-[0.95] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
             {titleTop}
             <br />
@@ -80,7 +80,7 @@ export default function PmcChallenge() {
             {/* Docked card: overlaps the panel's corner, white border makes the notch */}
             <a
               href={card.href}
-              className="group relative z-10 mt-6 ml-auto block w-[78%] overflow-hidden rounded-[1.75rem] border-[10px] border-white bg-neutral-900 shadow-xl shadow-black/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 min-[520px]:w-[56%] lg:col-span-4 lg:-mt-24 lg:ml-0 lg:w-auto lg:-translate-x-6 lg:self-start lg:rounded-[2rem]"
+              className="group relative z-10 mt-6 block w-full overflow-hidden rounded-[1.75rem] border-[10px] border-white bg-neutral-900 shadow-xl shadow-black/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 lg:col-span-4 lg:-mt-24 lg:ml-0 lg:w-auto lg:-translate-x-6 lg:self-start lg:rounded-[2rem]"
             >
               <img
                 src={`/assets/${card.image}`}

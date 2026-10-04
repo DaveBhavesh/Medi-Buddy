@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /**
- * YouTube Short card for the hero.
+ * YouTube Short card for the hero, shown as a square (the 9:16 video is centre-cropped to fill it).
  *
  * Why the IFrame Player API: a Shorts URL can't go in a <video> tag and a plain
  * <iframe> can't be paused/played from outside. The API gives us play/pause/mute.
@@ -194,7 +194,7 @@ export default function HeroVideoCard({ videoId, title, className = "" }) {
 
   return (
     <div
-      className={`group relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-neutral-900 shadow-2xl shadow-black/50 ring-1 ring-white/25 ${className}`}
+      className={`group relative aspect-square w-full overflow-hidden rounded-2xl bg-neutral-900 shadow-2xl shadow-black/50 ring-1 ring-white/25 ${className}`}
       onPointerEnter={onPointerEnter}
       onPointerLeave={onPointerLeave}
       onPointerDown={onPointerDown}
@@ -211,7 +211,7 @@ export default function HeroVideoCard({ videoId, title, className = "" }) {
       {/* YouTube iframe is injected here after the first interaction. */}
       <div
         ref={mountRef}
-        className={`pointer-events-none absolute inset-0 transition-opacity duration-300 [&>iframe]:h-full [&>iframe]:w-full ${
+        className={`pointer-events-none absolute inset-0 overflow-hidden transition-opacity duration-300 [&>iframe]:absolute [&>iframe]:left-0 [&>iframe]:top-1/2 [&>iframe]:h-[177.78%] [&>iframe]:w-full [&>iframe]:-translate-y-1/2 ${
           status === "playing" ? "opacity-100" : "opacity-0"
         }`}
       />

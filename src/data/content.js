@@ -67,6 +67,19 @@ export const whyMeditation = {
   cta: { label: "Learn more", href: "#be-a-meditator" },
 };
 
+export const pmcWorld = {
+  image: "img-019.jpg",
+  imageAlt: "Patriji speaking to a gathering of meditators",
+  eyebrow: "Pyramid Meditation Channel",
+  title: "PMC World",
+  subtitle: "Transforming Lives Through Meditation",
+  paragraphs: [
+    "PMC is the media wing of the Pyramid Spiritual Societies Movement (PSSM), founded by Brahmarshi Pitamaha Patriji — a global, non-profit and non-religious spiritual organization dedicated to transforming humanity through Anapanasati Meditation, Pyramid Power, and Vegetarianism, all free of cost.",
+    "PMC World channel was inaugurated on November 11, 2024, on the birth anniversary of our beloved master, friend, Guru Brahmarshi Pitamaha Patriji.",
+  ],
+  cta: { label: "Discover PMC", href: "#videos" },
+};
+
 export const testimonials = [
   {
     title: "Health",

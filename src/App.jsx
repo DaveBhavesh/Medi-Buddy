@@ -2,6 +2,7 @@ import ArrowIcon from "./components/ArrowIcon";
 import Explore from "./sections/Explore";
 import Hero from "./sections/Hero";
 import PmcChallenge from "./sections/PmcChallenge";
+import PmcWorld from "./sections/PmcWorld";
 import Testimonials from "./sections/Testimonials";
 import WhyMeditation from "./sections/WhyMeditation";
 import { books, pillars } from "./data/content";
@@ -9,7 +10,7 @@ import { books, pillars } from "./data/content";
 function Footer() {
   return (
     <footer id="contact" className="bg-[#0d0f10] py-16 text-white/70">
-      <div className="mx-auto grid max-w-[1760px] gap-12 px-3 sm:grid-cols-2 sm:px-4 lg:grid-cols-4">
+      <div className="grid w-full gap-12 px-[10px] sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <h2 className="text-2xl font-black text-white">PMC World</h2>
           <p className="mt-4 text-sm leading-6">
@@ -43,7 +44,7 @@ function Footer() {
           </button>
         </div>
       </div>
-      <div className="mx-auto mt-14 max-w-[1760px] border-t border-white/10 px-3 pb-[env(safe-area-inset-bottom)] pt-8 text-xs sm:px-4">
+      <div className="mt-14 w-full border-t border-white/10 px-[10px] pb-[env(safe-area-inset-bottom)] pt-8 text-xs">
         © 2026 PMC World. All rights reserved.
       </div>
     </footer>
@@ -61,49 +62,7 @@ function App() {
 
       <WhyMeditation />
 
-      {/* PMC */}
-      <section id="pmc" className="py-16 sm:py-28">
-        <div className="mx-auto grid max-w-[1760px] items-center gap-12 px-3 sm:px-4 md:grid-cols-2">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-amber-500 sm:text-sm sm:tracking-[0.28em]">
-              Pyramid Meditation Channel
-            </p>
-            <h2 className="mt-3 text-5xl font-black tracking-[-0.05em] sm:text-6xl">PMC World</h2>
-            <h3 className="mt-8 text-xl font-semibold italic sm:text-2xl">
-              Transforming Lives Through Meditation
-            </h3>
-            <p className="mt-5 leading-7 text-neutral-600">
-              PMC is the media wing of the Pyramid Spiritual Societies Movement (PSSM), founded by
-              Brahmarshi Pitamaha Patriji — a global, non-profit and non-religious spiritual
-              organization dedicated to transforming humanity through Anapanasati Meditation,
-              Pyramid Power, and Vegetarianism, all free of cost.
-            </p>
-            <p className="mt-4 leading-7 text-neutral-600">
-              PMC World channel was inaugurated on November 11, 2024, on the birth anniversary of
-              our beloved master, friend, Guru Brahmarshi Pitamaha Patriji.
-            </p>
-            <button className="mt-7 rounded-full bg-neutral-950 px-6 py-3 text-sm font-black text-white">
-              Discover PMC
-            </button>
-          </div>
-          <div className="relative mx-auto w-full max-w-lg">
-            <img
-              src="/assets/img-020.jpg"
-              alt="Patriji in red robes"
-              loading="lazy"
-              decoding="async"
-              className="relative z-10 mx-auto max-h-[460px] object-contain sm:max-h-[620px]"
-            />
-            <img
-              src="/assets/img-019.jpg"
-              alt="Patriji speaking to a gathering"
-              loading="lazy"
-              decoding="async"
-              className="absolute bottom-6 right-0 z-20 w-[46%] rounded-[1.25rem] border-4 border-white object-cover shadow-2xl sm:bottom-10 sm:w-1/2 sm:rounded-[1.75rem] sm:border-8"
-            />
-          </div>
-        </div>
-      </section>
+      <PmcWorld />
 
       <Testimonials />
 
@@ -117,7 +76,7 @@ function App() {
           className="absolute inset-0 -z-20 h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-black/70" />
-        <div className="mx-auto grid max-w-[1760px] gap-10 px-3 sm:px-4 md:grid-cols-2 md:gap-12">
+        <div className="grid w-full gap-10 px-[10px] md:grid-cols-2 md:gap-12">
           <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
             <img
               src="/assets/img-011.jpg"
@@ -140,7 +99,7 @@ function App() {
 
       {/* Quote */}
       <section className="bg-[#fdbb24] py-12 sm:py-20">
-        <div className="mx-auto grid max-w-[1760px] items-center gap-8 px-3 sm:px-4 md:grid-cols-2">
+        <div className="grid w-full items-center gap-8 px-[10px] md:grid-cols-2">
           <img
             src="/assets/img-026.jpg"
             alt="Paramahansa Yogananda"
@@ -160,7 +119,7 @@ function App() {
 
       {/* Be a meditator */}
       <section id="be-a-meditator" className="py-16 sm:py-28">
-        <div className="mx-auto max-w-[1760px] px-3 text-center sm:px-4">
+        <div className="w-full px-[10px] text-center">
           <h2 className="text-4xl font-black tracking-[-0.05em] min-[400px]:text-5xl sm:text-7xl">
             BE A <span className="text-amber-400">MEDITATOR</span>
           </h2>
@@ -196,7 +155,7 @@ function App() {
 
       {/* Volunteer */}
       <section className="bg-[#111314] py-16 text-white sm:py-20">
-        <div className="mx-auto grid max-w-[1760px] items-center gap-10 px-3 sm:px-4 md:grid-cols-2">
+        <div className="grid w-full items-center gap-10 px-[10px] md:grid-cols-2">
           <div>
             <h2 className="text-4xl font-black text-amber-400 sm:text-6xl">Be a volunteer</h2>
             <img
@@ -243,7 +202,7 @@ function App() {
 
       {/* Swadhyay Yog */}
       <section className="bg-amber-400 py-14 sm:py-16">
-        <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
+        <div className="w-full px-[10px]">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="text-4xl font-black tracking-[-0.05em] min-[400px]:text-5xl sm:text-7xl">
@@ -278,7 +237,7 @@ function App() {
 
       {/* Podcast */}
       <section className="py-16 sm:py-28">
-        <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
+        <div className="w-full px-[10px]">
           <div className="grid items-center gap-12 md:grid-cols-[0.75fr_1.25fr]">
             <div className="relative mx-auto">
               <div className="absolute inset-4 rounded-[3rem] bg-neutral-950" />
@@ -343,7 +302,7 @@ function App() {
 
       {/* Magazine */}
       <section className="border-y border-neutral-200 py-16 sm:py-28">
-        <div className="mx-auto grid max-w-[1760px] items-center gap-12 px-3 sm:px-4 md:grid-cols-2">
+        <div className="grid w-full items-center gap-12 px-[10px] md:grid-cols-2">
           <img
             src="/assets/img-061.jpg"
             alt="Pyramid Dhyan Jagat magazine cover"
@@ -378,7 +337,7 @@ function App() {
 
       {/* Videos */}
       <section id="videos" className="bg-[#111314] py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-[1760px] px-3 sm:px-4">
+        <div className="w-full px-[10px]">
           <h2 className="max-w-4xl text-3xl font-black tracking-[-0.04em] text-pink-500 min-[400px]:text-4xl sm:text-6xl">
             Masters videos about meditation
           </h2>
