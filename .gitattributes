@@ -1,0 +1,10 @@
+# Intentionally no Git LFS rules.
+# Images, fonts and other site assets are stored as normal git files so that
+# Vercel serves the real binaries (not LFS pointer text files).
+* text=auto
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.gif binary
+*.svg text
