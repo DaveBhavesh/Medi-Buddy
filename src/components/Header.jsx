@@ -34,7 +34,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="flex w-full items-center justify-between lg:grid lg:grid-cols-[1fr_auto_1fr] px-[10px] py-2 sm:py-3 lg:px-8 lg:py-4">
+      <div className="flex w-full items-center justify-between px-[10px] py-2 sm:py-3 lg:px-8 lg:py-4">
         <a href="#top" className="flex items-center" aria-label="PMC World home">
           <img
             src="/assets/pmc-world-logo.png"
@@ -45,7 +45,7 @@ export default function Header() {
           />
         </a>
         <nav
-          className="hidden items-center gap-9 text-sm font-semibold xl:gap-14 lg:flex"
+          className="hidden flex-1 items-center justify-evenly px-6 text-sm font-semibold xl:px-16 xl:text-base lg:flex"
           aria-label="Primary"
         >
           {navItems.map((item) => (
@@ -58,7 +58,7 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <div className="hidden items-center gap-4 lg:flex lg:justify-self-end">
+        <div className="hidden items-center gap-4 lg:flex">
           <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-xs font-bold backdrop-blur">
             Join the Movement
           </button>
