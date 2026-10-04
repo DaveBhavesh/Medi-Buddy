@@ -18,7 +18,7 @@ export default function Testimonials() {
           label="testimonials"
           theme="dark"
           className="mt-10"
-          itemClassName="w-[84%] min-[560px]:w-[46%] lg:w-[calc((100%-20px)/3)]"
+          itemClassName="w-[70%] min-[560px]:w-[calc((100%-20px)/3)] lg:w-[calc((100%-30px)/4)]"
         >
           {testimonials.map((item) => (
             <article
@@ -31,7 +31,7 @@ export default function Testimonials() {
                 loading="lazy"
                 decoding="async"
                 draggable="false"
-                className="aspect-[3/2] w-full object-cover object-[50%_25%]"
+                className="aspect-[4/5] w-full object-cover object-[50%_25%]"
               />
               <div className="flex-1 p-5 sm:p-6">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-600">

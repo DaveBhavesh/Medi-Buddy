@@ -218,7 +218,7 @@ export default function HeroVideoCard({ videoId, title, className = "" }) {
 
       {showPlayHint && (
         <div className="pointer-events-none absolute inset-0 grid place-items-center bg-black/25">
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-white/90 pl-0.5 text-black shadow-lg sm:h-12 sm:w-12">
+          <span className="grid h-8 w-8 place-items-center rounded-full bg-white/90 pl-0.5 text-black shadow-lg sm:h-12 sm:w-12">
             <PlayIcon />
           </span>
         </div>
@@ -233,7 +233,7 @@ export default function HeroVideoCard({ videoId, title, className = "" }) {
         className="absolute inset-0 z-10 cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-amber-300"
       />
 
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/80 to-transparent px-2 pb-2 pt-6 text-center text-[10px] font-bold uppercase tracking-wider text-white sm:text-[11px]">
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden bg-gradient-to-t from-black/80 to-transparent px-2 pb-2 pt-6 text-center text-[10px] font-bold uppercase tracking-wider text-white min-[480px]:block sm:text-[11px]">
         <span className="hidden [@media(hover:hover)]:inline">Hover to play</span>
         <span className="[@media(hover:hover)]:hidden">Tap to play</span>
       </span>
@@ -244,7 +244,7 @@ export default function HeroVideoCard({ videoId, title, className = "" }) {
           onClick={toggleMute}
           aria-label={muted ? "Turn sound on" : "Turn sound off"}
           aria-pressed={!muted}
-          className="absolute right-2 top-2 z-20 grid h-10 w-10 place-items-center [@media(hover:hover)]:h-8 [@media(hover:hover)]:w-8 rounded-full bg-black/60 text-white backdrop-blur transition hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-amber-300"
+          className="absolute right-1 top-1 z-20 grid h-6 w-6 place-items-center sm:right-2 sm:top-2 sm:h-10 sm:w-10 [@media(hover:hover)]:sm:h-8 [@media(hover:hover)]:sm:w-8 rounded-full bg-black/60 text-white backdrop-blur transition hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-amber-300"
         >
           <SoundIcon muted={muted} />
         </button>

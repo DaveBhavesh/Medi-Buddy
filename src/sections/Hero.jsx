@@ -4,7 +4,7 @@ import { heroVideo } from "../data/content";
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#1c2120] pb-20 text-white lg:pb-0">
+    <section className="relative bg-[#1c2120] text-white">
       <Header />
 
       <div className="relative z-10 mx-auto max-w-4xl px-[10px] pb-12 pt-28 text-center sm:pb-16 sm:pt-36">
@@ -38,8 +38,8 @@ export default function Hero() {
 
       {/*
         Full-bleed hero image shown at its own aspect ratio (no height cap, no cropping).
-        Below `lg` the square video card hangs half over the bottom edge so it never covers
-        the poster text; from `lg` up it sits inside the empty bottom-right corner of the poster.
+        The square video card always sits inside the empty bottom-right corner of the poster
+        (it scales with the screen) so it never covers the poster text.
       */}
       <div className="relative w-full">
         <img
@@ -52,7 +52,7 @@ export default function Hero() {
           className="block h-auto w-full"
         />
 
-        <div className="absolute bottom-0 right-[10px] z-10 w-[clamp(112px,14vw,260px)] translate-y-1/2 lg:bottom-[3%] lg:translate-y-0">
+        <div className="absolute bottom-[3%] right-[10px] z-10 w-[clamp(60px,15vw,260px)]">
           <HeroVideoCard videoId={heroVideo.id} title={heroVideo.title} />
         </div>
       </div>
