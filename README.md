@@ -55,3 +55,26 @@ public/assets/               all images
 - Change the name/text in "Why Meditation": `whyMeditation` in `src/data/content.js`.
 - Challenge copy, chips and button: `challenge` in `src/data/content.js`.
 - Add a testimonial or explore card: add an item to `testimonials` / `exploreCards`.
+
+## Header & footer
+
+- **Header menus** live in `src/data/nav.js`. A leaf with no `href` has no page yet and renders as a
+  muted "Soon" entry (not a fake link). Add the `href` once the page/section exists.
+- **Footer** is rendered from `src/data/footer.js` (rows 1-3 and the contact row). To add a footer
+  reference, add `{ label: "New link", href: "#section" }` to a row's `items` (look for the
+  `>>> FUTURE` comments); `children: [...]` nests. Rows wrap automatically. The original
+  copyright bar (row 5) is `LegacyBottomBar` in `src/components/footer/Footer.jsx`.
+
+### Join Us email notification (serverless, Vercel)
+
+`api/subscribe.js` emails the administrator via [Resend](https://resend.com). Set in
+Vercel -> Project -> Settings -> Environment Variables (then redeploy):
+
+| Variable         | Required | Meaning |
+|------------------|----------|---------|
+| `RESEND_API_KEY` | yes      | Resend API key |
+| `ADMIN_EMAIL`    | yes      | Address that receives each sign-up notification |
+| `MAIL_FROM`      | no       | Verified sender, e.g. `PMC World <no-reply@yourdomain.org>`. Default is Resend's test sender, which can only deliver to the Resend account owner's email until you verify a domain. |
+
+Until both required variables are set the form shows an error (it never fakes success).
+`npm run dev` has no `/api`; use `npx vercel dev` to try the form locally.

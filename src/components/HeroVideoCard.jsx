@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { loadYouTubeApi } from "../lib/youtube";
 
 /**
  * YouTube Short card for the hero, shown as a square (the 9:16 video is centre-cropped to fill it).
@@ -18,30 +19,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const YT_PLAYING = 1;
 const YT_PAUSED = 2;
-
-let apiPromise = null;
-
-function loadYouTubeApi() {
-  if (window.YT && window.YT.Player) return Promise.resolve(window.YT);
-  if (!apiPromise) {
-    apiPromise = new Promise((resolve, reject) => {
-      const previous = window.onYouTubeIframeAPIReady;
-      window.onYouTubeIframeAPIReady = () => {
-        if (typeof previous === "function") previous();
-        resolve(window.YT);
-      };
-      const script = document.createElement("script");
-      script.src = "https://www.youtube.com/iframe_api";
-      script.async = true;
-      script.onerror = () => {
-        apiPromise = null;
-        reject(new Error("Could not load the YouTube player"));
-      };
-      document.head.appendChild(script);
-    });
-  }
-  return apiPromise;
-}
 
 function PlayIcon() {
   return (

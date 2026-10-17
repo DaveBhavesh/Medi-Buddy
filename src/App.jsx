@@ -1,73 +1,35 @@
 import ArrowIcon from "./components/ArrowIcon";
+import Footer from "./components/footer/Footer";
+import AboutPatriji from "./sections/AboutPatriji";
+import Authors from "./sections/Authors";
+import BeAMeditator from "./sections/BeAMeditator";
 import Explore from "./sections/Explore";
 import Hero from "./sections/Hero";
-import PmcChallenge from "./sections/PmcChallenge";
 import PmcWorld from "./sections/PmcWorld";
+import QuoteBanner from "./sections/QuoteBanner";
+import Quotes from "./sections/Quotes";
+import Swadhyay from "./sections/Swadhyay";
 import Testimonials from "./sections/Testimonials";
 import WhyMeditation from "./sections/WhyMeditation";
-import { books, pillars } from "./data/content";
-
-function Footer() {
-  return (
-    <footer id="contact" className="bg-[#0d0f10] py-16 text-white/70">
-      <div className="grid w-full gap-12 px-[10px] sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <h2 className="text-2xl font-black text-white">PMC World</h2>
-          <p className="mt-4 text-sm leading-6">
-            Meditate. Transform. Awaken your inner master.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-black text-white">Explore</h3>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="#meditation">Meditation</a></li>
-            <li><a href="#pmc">About PMC</a></li>
-            <li><a href="#videos">Master Videos</a></li>
-            <li><a href="#explore">PSSM</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="font-black text-white">Contact Us</h3>
-          <p className="mt-4 text-sm leading-6">
-            Hyderabad, Telangana, India
-            <br />
-            +91 80080 12345
-            <br />
-            contact@pmcworld.org
-          </p>
-        </div>
-        <div>
-          <h3 className="font-black text-white">Subscribe</h3>
-          <p className="mt-4 text-sm">Join millions of seekers around the world.</p>
-          <button className="mt-5 min-h-10 rounded-full border border-white/30 px-5 py-2 text-sm font-black text-white">
-            Subscribe now
-          </button>
-        </div>
-      </div>
-      <div className="mt-14 w-full border-t border-white/10 px-[10px] pb-[env(safe-area-inset-bottom)] pt-8 text-xs">
-        © 2026 PMC World. All rights reserved.
-      </div>
-    </footer>
-  );
-}
+import { pillars } from "./data/content";
 
 function App() {
   return (
     <main id="top" className="overflow-hidden bg-white text-[#17191a]">
       <Hero />
-
       <Explore />
-
-      <PmcChallenge />
-
-      <WhyMeditation />
-
+      <AboutPatriji />
       <PmcWorld />
-
+      <WhyMeditation />
       <Testimonials />
+      <BeAMeditator />
+      <QuoteBanner />
+      <Swadhyay />
+      <Authors />
+      <Quotes />
 
       {/* Pillars */}
-      <section className="relative isolate overflow-hidden py-16 text-white sm:py-28">
+      <section id="pssm" className="relative isolate overflow-hidden py-16 text-white sm:py-28">
         <img
           src="/assets/img-023.jpg"
           alt=""
@@ -97,64 +59,8 @@ function App() {
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="bg-[#fdbb24] py-12 sm:py-20">
-        <div className="grid w-full items-center gap-8 px-[10px] md:grid-cols-2">
-          <img
-            src="/assets/img-026.jpg"
-            alt="Paramahansa Yogananda"
-            loading="lazy"
-            decoding="async"
-            className="max-h-[320px] w-full object-contain object-left sm:max-h-[390px]"
-          />
-          <blockquote className="text-2xl font-black leading-tight sm:text-4xl lg:text-5xl">
-            “Live quietly in the moment and see the beauty of all before you. The future will take
-            care of itself.”
-            <footer className="mt-6 text-base font-semibold italic">
-              — Paramahansa Yogananda
-            </footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* Be a meditator */}
-      <section id="be-a-meditator" className="py-16 sm:py-28">
-        <div className="w-full px-[10px] text-center">
-          <h2 className="text-4xl font-black tracking-[-0.05em] min-[400px]:text-5xl sm:text-7xl">
-            BE A <span className="text-amber-400">MEDITATOR</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg">
-            PMC is a spiritual and meditation-focused media channel established in 2018 by
-            Brahmarshi Subhash Patriji, the founder of the Pyramid Spiritual Societies Movement.
-          </p>
-          <div className="mt-12 grid items-center gap-8 rounded-[1.5rem] bg-neutral-100 p-5 text-left sm:rounded-[2rem] sm:p-6 md:grid-cols-2 md:p-12">
-            <img
-              src="/assets/img-044.jpg"
-              alt="Patriji meditating"
-              loading="lazy"
-              decoding="async"
-              className="max-h-[420px] w-full object-contain md:max-h-[520px]"
-            />
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.25em] text-amber-600">
-                Quick 15 minutes
-              </p>
-              <h3 className="mt-3 text-3xl font-black leading-none sm:text-5xl">
-                Guided Meditation with Patriji
-              </h3>
-              <p className="mt-5 text-base text-neutral-600 sm:text-lg">
-                Transform your day through breath, stillness, and awareness.
-              </p>
-              <button className="mt-7 rounded-full bg-black px-6 py-3 text-sm font-black text-white">
-                Watch guided meditation
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Volunteer */}
-      <section className="bg-[#111314] py-16 text-white sm:py-20">
+      <section id="volunteer" className="bg-[#111314] py-16 text-white sm:py-20">
         <div className="grid w-full items-center gap-10 px-[10px] md:grid-cols-2">
           <div>
             <h2 className="text-4xl font-black text-amber-400 sm:text-6xl">Be a volunteer</h2>
@@ -200,43 +106,8 @@ function App() {
         </div>
       </section>
 
-      {/* Swadhyay Yog */}
-      <section className="bg-amber-400 py-14 sm:py-16">
-        <div className="w-full px-[10px]">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 className="text-4xl font-black tracking-[-0.05em] min-[400px]:text-5xl sm:text-7xl">
-                SWADHYAY YOG
-              </h2>
-              <p className="mt-3 text-base font-bold italic sm:text-xl">
-                “Books are undeniably a swift shortcut to Enlightenment” — Linda Goodman
-              </p>
-            </div>
-            <span className="text-xs font-black uppercase tracking-[0.2em] sm:text-sm">
-              Recommended by Patriji
-            </span>
-          </div>
-          <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {books.map((book) => (
-              <article key={book.name} className="relative overflow-hidden rounded-xl bg-black">
-                <img
-                  src={`/assets/${book.image}`}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[1.35] h-full w-full object-cover opacity-80"
-                />
-                <h3 className="absolute bottom-3 left-3 right-3 text-lg font-black leading-tight text-white sm:bottom-4 sm:left-4 sm:text-2xl">
-                  {book.name}
-                </h3>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Podcast */}
-      <section className="py-16 sm:py-28">
+      <section id="podcast" className="py-16 sm:py-28">
         <div className="w-full px-[10px]">
           <div className="grid items-center gap-12 md:grid-cols-[0.75fr_1.25fr]">
             <div className="relative mx-auto">
@@ -301,7 +172,7 @@ function App() {
       </section>
 
       {/* Magazine */}
-      <section className="border-y border-neutral-200 py-16 sm:py-28">
+      <section id="magazine" className="border-y border-neutral-200 py-16 sm:py-28">
         <div className="grid w-full items-center gap-12 px-[10px] md:grid-cols-2">
           <img
             src="/assets/img-061.jpg"

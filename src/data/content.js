@@ -1,15 +1,5 @@
 // Site content kept separate from presentation so copy/images can be edited in one place.
 
-export const navItems = [
-  "Meditation",
-  "Patriji",
-  "PMC",
-  "Videos",
-  "Articles",
-  "Explore",
-  "Contact",
-];
-
 // YouTube Short shown over the hero image.
 export const heroVideo = {
   id: "gS9EKeWFni0",
@@ -48,25 +38,6 @@ export const challenge = {
   },
 };
 
-export const whyMeditation = {
-  image: "patriji-meditating.jpg",
-  imageAlt:
-    "Brahmarshi Pitamaha Subhash Patriji seated in meditation in front of snow-capped mountains",
-  eyebrow: "Why Meditation?",
-  honorific: "Brahmarshi Pitamaha",
-  name: "Subhash Patriji",
-  role: "Founder, Pyramid Spiritual Societies Movement",
-  lead: "Meditation is not an escape from life. It is the way to meet life with a calm, clear mind.",
-  copy: "Guided by Patriji, seekers around the world have made Anapanasati meditation a simple daily habit, free of cost. A few quiet minutes a day can change how you think, feel and live.",
-  benefits: [
-    { title: "A calmer mind", text: "Ease stress and restlessness and think with greater clarity." },
-    { title: "A healthier life", text: "Deep relaxation supports better rest and a more balanced body." },
-    { title: "Sharper focus", text: "Build memory, concentration and confidence at any age." },
-    { title: "Inner peace", text: "Live with more awareness, joy and a stronger sense of purpose." },
-  ],
-  cta: { label: "Learn more", href: "#be-a-meditator" },
-};
-
 export const pmcWorld = {
   image: "img-019.jpg",
   imageAlt: "Patriji speaking to a gathering of meditators",
@@ -79,24 +50,6 @@ export const pmcWorld = {
   ],
   cta: { label: "Discover PMC", href: "#videos" },
 };
-
-export const testimonials = [
-  {
-    title: "Health",
-    image: "img-016.jpg",
-    copy: "Meditation supports a calmer mind and a healthier, more balanced life.",
-  },
-  {
-    title: "Students",
-    image: "img-015.jpg",
-    copy: "Meditation offers profound benefits for memory, focus, confidence, and much more.",
-  },
-  {
-    title: "Inner peace",
-    image: "img-011.jpg",
-    copy: "Wisdom from senior masters for living with greater awareness and joy.",
-  },
-];
 
 export const pillars = [
   "Anapanasati meditation",

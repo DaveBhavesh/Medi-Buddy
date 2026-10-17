@@ -1,10 +1,12 @@
 import Header from "../components/Header";
+import HeroSlider from "../components/HeroSlider";
 import HeroVideoCard from "../components/HeroVideoCard";
 import { heroVideo } from "../data/content";
+import { heroSlides } from "../data/sections";
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#1c2120] text-white">
+    <section className="relative bg-[#1c2120] pb-[10px] text-white">
       <Header />
 
       <div className="relative z-10 mx-auto w-full px-[10px] pb-10 pt-28 text-center sm:pb-14 sm:pt-36 lg:pb-16 lg:pt-40">
@@ -34,25 +36,17 @@ export default function Hero() {
         </div>
       </div>
 
-      {/*
-        Full-bleed hero image shown at its own aspect ratio (no height cap, no cropping).
-        The square video card always sits inside the empty bottom-right corner of the poster
-        (it scales with the screen) so it never covers the poster text.
-      */}
-      <div className="relative w-full">
-        <img
-          src="/assets/img-004.jpg"
-          alt="Free 21-day meditation challenge with Patriji"
-          width="1400"
-          height="798"
-          fetchPriority="high"
-          decoding="async"
-          className="block h-auto w-full"
+      {/* Slider: fills the space between the 10px gutters; the video card floats over every slide. */}
+      <div className="px-[10px]">
+        <HeroSlider
+          label="Featured images"
+          slides={heroSlides}
+          overlay={
+            <div className="absolute bottom-[9%] right-[2.5%] z-10 w-[clamp(52px,13vw,230px)] sm:bottom-[10%]">
+              <HeroVideoCard videoId={heroVideo.id} title={heroVideo.title} />
+            </div>
+          }
         />
-
-        <div className="absolute bottom-[3%] right-[10px] z-10 w-[clamp(60px,15vw,260px)]">
-          <HeroVideoCard videoId={heroVideo.id} title={heroVideo.title} />
-        </div>
       </div>
     </section>
   );
