@@ -11,7 +11,7 @@ export default function AboutPatriji() {
   const panelId = useId();
 
   return (
-    <section id="patriji" className="bg-black py-16 text-white sm:py-24 lg:py-28">
+    <section id="patriji" className="bg-night py-16 text-white sm:py-24 lg:py-28">
       <div className="w-full px-[10px]">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <img

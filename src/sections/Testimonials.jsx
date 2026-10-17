@@ -42,7 +42,7 @@ function Thumbnail({ item }) {
       : null;
 
   return (
-    <div className="relative aspect-[16/10] overflow-hidden bg-neutral-800">
+    <div className="relative aspect-[4/5] overflow-hidden bg-neutral-800">
       {src ? (
         <img
           src={src}
@@ -87,7 +87,7 @@ export default function Testimonials() {
   const [playing, setPlaying] = useState(null);
 
   return (
-    <section id="testimonials" className="bg-[#111314] py-16 text-white sm:py-24">
+    <section id="testimonials" className="bg-night py-16 text-white sm:py-24">
       <div className="w-full px-[10px]">
         <p className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">Real stories</p>
         <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.03em] sm:text-5xl lg:text-6xl">

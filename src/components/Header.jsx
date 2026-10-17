@@ -159,7 +159,7 @@ function DesktopNav() {
                   open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
                 }`}
               >
-                <div className="max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-xl border border-white/10 bg-neutral-950/97 text-white shadow-2xl shadow-black/40 backdrop-blur-md">
+                <div className="max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-xl border border-white/10 bg-night/97 text-white shadow-2xl shadow-black/40 backdrop-blur-md">
                   <MenuList items={menu.children} onNavigate={close} hoverable />
                 </div>
               </div>
@@ -177,7 +177,7 @@ function MobileNav({ onNavigate }) {
     <nav
       id="mobile-menu"
       aria-label="Mobile"
-      className="mx-[10px] max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-2xl bg-neutral-950/97 p-3 shadow-2xl lg:hidden"
+      className="mx-[10px] max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-2xl bg-night/97 p-3 shadow-2xl lg:hidden"
     >
       <ul>
         {navMenu.map((menu, i) => {
@@ -243,7 +243,7 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] text-white transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
         scrolled || open
-          ? "bg-neutral-950/85 shadow-lg shadow-black/20 backdrop-blur-md"
+          ? "bg-night/85 shadow-lg shadow-black/20 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >

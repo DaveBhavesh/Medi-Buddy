@@ -6,7 +6,7 @@ import { heroSlides } from "../data/sections";
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#1c2120] pb-[10px] text-white">
+    <section className="relative bg-night pb-[10px] text-white">
       <Header />
 
       <div className="relative z-10 mx-auto w-full px-[10px] pb-10 pt-28 text-center sm:pb-14 sm:pt-36 lg:pb-16 lg:pt-40">

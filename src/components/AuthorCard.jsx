@@ -109,7 +109,7 @@ export default function AuthorCard({ author, tone }) {
 
   return (
     <article
-      className="group relative isolate aspect-[4/5] w-full overflow-hidden rounded-2xl bg-neutral-900 text-white shadow-lg shadow-black/10 transition-shadow duration-300 hover:shadow-2xl [container-type:inline-size]"
+      className="group relative isolate aspect-[3/4] w-full overflow-hidden rounded-2xl bg-neutral-900 text-white shadow-lg shadow-black/10 transition-shadow duration-300 hover:shadow-2xl [container-type:inline-size]"
       onPointerEnter={onEnter}
       onPointerLeave={onLeave}
     >

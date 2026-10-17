@@ -6,7 +6,6 @@ import BeAMeditator from "./sections/BeAMeditator";
 import Explore from "./sections/Explore";
 import Hero from "./sections/Hero";
 import PmcWorld from "./sections/PmcWorld";
-import QuoteBanner from "./sections/QuoteBanner";
 import Quotes from "./sections/Quotes";
 import Swadhyay from "./sections/Swadhyay";
 import Testimonials from "./sections/Testimonials";
@@ -15,7 +14,7 @@ import { pillars } from "./data/content";
 
 function App() {
   return (
-    <main id="top" className="overflow-hidden bg-white text-[#17191a]">
+    <main id="top" className="overflow-hidden bg-cream text-[#17191a]">
       <Hero />
       <Explore />
       <AboutPatriji />
@@ -23,7 +22,6 @@ function App() {
       <WhyMeditation />
       <Testimonials />
       <BeAMeditator />
-      <QuoteBanner />
       <Swadhyay />
       <Authors />
       <Quotes />
@@ -60,7 +58,7 @@ function App() {
       </section>
 
       {/* Volunteer */}
-      <section id="volunteer" className="bg-[#111314] py-16 text-white sm:py-20">
+      <section id="volunteer" className="bg-night py-16 text-white sm:py-20">
         <div className="grid w-full items-center gap-10 px-[10px] md:grid-cols-2">
           <div>
             <h2 className="text-4xl font-black text-amber-400 sm:text-6xl">Be a volunteer</h2>
@@ -111,7 +109,7 @@ function App() {
         <div className="w-full px-[10px]">
           <div className="grid items-center gap-12 md:grid-cols-[0.75fr_1.25fr]">
             <div className="relative mx-auto">
-              <div className="absolute inset-4 rounded-[3rem] bg-neutral-950" />
+              <div className="absolute inset-4 rounded-[3rem] bg-night-deep" />
               <img
                 src="/assets/img-049.jpg"
                 alt="Podcast playing on a smartphone"
@@ -207,9 +205,9 @@ function App() {
       </section>
 
       {/* Videos */}
-      <section id="videos" className="bg-[#111314] py-16 text-white sm:py-20">
+      <section id="videos" className="bg-night py-16 text-white sm:py-20">
         <div className="w-full px-[10px]">
-          <h2 className="max-w-4xl text-3xl font-black tracking-[-0.04em] text-pink-500 min-[400px]:text-4xl sm:text-6xl">
+          <h2 className="max-w-4xl text-3xl font-black tracking-[-0.04em] text-gold min-[400px]:text-4xl sm:text-6xl">
             Masters videos about meditation
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-2">

@@ -3,6 +3,13 @@
 @theme {
   --font-sans: "DM Sans Variable", "DM Sans", ui-sans-serif, system-ui, sans-serif;
   /* condensed display face for the poster-style graphics */
+  /* Palette: deep indigo night + warm cream, with saffron / gold accents (from the logo) */
+  --color-night: #17122e;
+  --color-night-2: #241a4d;
+  --color-night-deep: #0f0b22;
+  --color-cream: #fbf5ea;
+  --color-saffron: #f5922f;
+  --color-gold: #fbbf24;
   --font-display: "Oswald", "Arial Narrow", Impact, sans-serif;
 }
 
@@ -18,7 +25,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #ffffff;
+  background: #fbf5ea;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;

@@ -3,7 +3,7 @@ import { pmcWorld } from "../data/content";
 /** Poster-style graphic from the reference: photo card, green wave with "what is PMC world?", Patriji overlapping. */
 function PmcGraphic() {
   return (
-    <div className="relative mx-auto aspect-[4/5] w-full max-w-[560px] [container-type:inline-size]">
+    <div className="relative mx-auto aspect-[4/5] w-full max-w-[560px] lg:ml-auto lg:mr-0 lg:max-w-[640px] [container-type:inline-size]">
       <div className="absolute inset-y-0 left-0 w-[78%] overflow-hidden rounded-tl-[2rem] rounded-tr-[4.5rem] rounded-bl-[4.5rem] rounded-br-[2rem] bg-neutral-800">
         <img
           src="/assets/img-023.jpg"
@@ -55,7 +55,7 @@ export default function PmcWorld() {
   const { eyebrow, title, subtitle, paragraphs, cta } = pmcWorld;
 
   return (
-    <section id="pmc" className="py-16 sm:py-24">
+    <section id="pmc" className="bg-white py-16 sm:py-24">
       <div className="w-full px-[10px]">
         <header className="text-center">
           <h2 className="text-4xl font-black tracking-[-0.045em] text-[#201c1c] sm:text-6xl lg:text-7xl">
@@ -66,17 +66,17 @@ export default function PmcWorld() {
           </p>
         </header>
 
-        <div className="mx-auto mt-10 grid max-w-6xl items-center gap-10 sm:mt-14 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-10 grid items-center gap-10 sm:mt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-20">
           <div>
-            <h3 className="text-2xl font-bold italic leading-tight sm:text-3xl">{subtitle}</h3>
+            <h3 className="text-2xl font-bold italic leading-tight sm:text-3xl lg:text-5xl">{subtitle}</h3>
             {paragraphs.map((text) => (
-              <p key={text} className="mt-5 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
+              <p key={text} className="mt-5 text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8 lg:text-xl lg:leading-9">
                 {text}
               </p>
             ))}
             <a
               href={cta.href}
-              className="mt-7 inline-flex min-h-12 items-center rounded-full bg-neutral-950 px-7 py-3 text-sm font-black text-white transition hover:bg-[#22b04b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22b04b]"
+              className="mt-7 inline-flex min-h-12 items-center rounded-full bg-night px-7 py-3 text-sm font-black text-white transition hover:bg-[#22b04b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22b04b]"
             >
               {cta.label}
             </a>

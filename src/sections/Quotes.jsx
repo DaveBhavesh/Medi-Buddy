@@ -30,13 +30,13 @@ export default function Quotes() {
   const thumbsRef = useRef(null);
 
   const arrow =
-    "grid h-11 w-11 place-items-center rounded-full border border-white/40 text-white transition hover:bg-white hover:text-[#0f4c9a] focus-visible:outline-2 focus-visible:outline-amber-300";
+    "grid h-11 w-11 place-items-center rounded-full border border-white/40 text-white transition hover:bg-white hover:text-night-2 focus-visible:outline-2 focus-visible:outline-amber-300";
 
   return (
-    <section id="quotes" className="bg-white py-10 sm:py-16" aria-label="Inspirational quotes">
+    <section id="quotes" className="bg-cream py-10 sm:py-16" aria-label="Inspirational quotes">
       <div className="w-full px-[10px]">
         <div
-          className="relative overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[#0f4c9a] via-[#1769c9] to-[#2b8be8] text-white sm:rounded-[2.25rem]"
+          className="relative overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-night-2 via-[#4a2a96] to-[#8a3fb8] text-white sm:rounded-[2.25rem]"
           role="group"
           aria-roledescription="carousel"
           aria-label="Inspirational quotes"
@@ -57,7 +57,7 @@ export default function Quotes() {
                 aria-label={`${i + 1} of ${count}: ${item.name}`}
                 className="grid w-full shrink-0 snap-center items-center gap-6 p-5 sm:p-8 lg:grid-cols-12 lg:gap-12 lg:p-12"
               >
-                <div className="mx-auto aspect-[4/5] w-[62%] max-w-[360px] overflow-hidden rounded-[1.5rem] bg-white/10 shadow-2xl shadow-black/30 ring-1 ring-white/25 [container-type:inline-size] sm:w-[46%] lg:col-span-5 lg:w-full lg:max-w-[460px] lg:justify-self-center">
+                <div className="mx-auto aspect-[3/4] w-[62%] max-w-[360px] overflow-hidden rounded-[1.5rem] bg-white/10 shadow-2xl shadow-black/30 ring-1 ring-white/25 [container-type:inline-size] sm:w-[46%] lg:col-span-5 lg:w-full lg:max-w-[460px] lg:justify-self-center">
                   <Portrait slug={item.slug} name={item.name} tone={i} lazy={i > 0} position="object-[50%_20%]" />
                 </div>
                 <div className="lg:col-span-7">

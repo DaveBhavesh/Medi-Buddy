@@ -9,7 +9,7 @@ export default function WhyMeditation() {
     whyMeditation;
 
   return (
-    <section id="meditation" className="bg-white py-16 sm:py-24 lg:py-28" aria-labelledby="why-meditation-heading">
+    <section id="meditation" className="bg-cream py-16 sm:py-24 lg:py-28" aria-labelledby="why-meditation-heading">
       <div className="w-full px-[10px]">
         <h2
           id="why-meditation-heading"
@@ -22,7 +22,7 @@ export default function WhyMeditation() {
 
         <div className="mt-8 grid gap-x-8 lg:mt-12 lg:grid-cols-12">
           {/* Photo panel */}
-          <div className="relative aspect-[1600/1439] overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#2b63c7] to-[#3b82e6] sm:aspect-[4/3] lg:col-span-8 lg:rounded-[2.25rem]">
+          <div className="relative aspect-[1600/1439] overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-night-2 to-[#7a3fb0] sm:aspect-[4/3] lg:col-span-8 lg:rounded-[2.25rem]">
             <img
               src={`/assets/${image}`}
               alt={imageAlt}
@@ -49,7 +49,7 @@ export default function WhyMeditation() {
             </ul>
             <a
               href={cta.href}
-              className="mt-7 inline-flex min-h-12 w-fit items-center rounded-full bg-neutral-950 px-7 py-3 text-sm font-black text-white transition hover:bg-amber-400 hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+              className="mt-7 inline-flex min-h-12 w-fit items-center rounded-full bg-night px-7 py-3 text-sm font-black text-white transition hover:bg-amber-400 hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
             >
               {cta.label}
             </a>
@@ -73,7 +73,7 @@ export default function WhyMeditation() {
           {/* Docked video card */}
           <a
             href={card.href}
-            className="group relative z-10 mt-6 block w-full overflow-hidden rounded-[1.75rem] border-[10px] border-white bg-neutral-900 shadow-xl shadow-black/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 min-[560px]:ml-auto min-[560px]:w-[60%] lg:col-span-4 lg:-mt-24 lg:ml-0 lg:w-auto lg:-translate-x-6 lg:self-start lg:rounded-[2rem]"
+            className="group relative z-10 mt-6 block w-full overflow-hidden rounded-[1.75rem] border-[10px] border-cream bg-neutral-900 shadow-xl shadow-black/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 min-[560px]:ml-auto min-[560px]:w-[60%] lg:col-span-4 lg:-mt-24 lg:ml-0 lg:w-auto lg:-translate-x-6 lg:self-start lg:rounded-[2rem]"
           >
             <img
               src={`/assets/${card.image}`}

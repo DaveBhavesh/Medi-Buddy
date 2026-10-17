@@ -5,7 +5,7 @@ export default function Swadhyay() {
   const { title, by, photo, photoAlt, quote, quoteBy, watch } = swadhyay;
 
   return (
-    <section id="swadhyay" className="bg-white py-10 sm:py-16">
+    <section id="swadhyay" className="bg-cream py-10 sm:py-16">
       <div className="w-full px-[10px]">
         <div className="overflow-hidden rounded-[1.5rem] bg-[#fdbb24] sm:rounded-[2.25rem]">
           {/* Top: photo panel + title */}
