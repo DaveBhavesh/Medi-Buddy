@@ -11,18 +11,18 @@ export const navMenu = [
     label: "Meditation",
     children: [
       { label: "Anapanasati Meditation", href: "#explore" },
-      { label: "Science Behind Meditation", href: "#pssm" },
+      { label: "Science Behind Meditation" },
       { label: "Benefits of Meditation", href: "#meditation" },
-      { label: "Pyramid Meditation", href: "#videos" },
-      { label: "Full Moon Meditation", href: "#videos" },
+      { label: "Pyramid Meditation" },
+      { label: "Full Moon Meditation" },
       { label: "Music Meditation", href: "#be-a-meditator" },
-      { label: "Mind and Meditation", href: "#pssm" },
+      { label: "Mind and Meditation" },
     ],
   },
   {
     label: "PSSM",
     children: [
-      { label: "18-Guiding Principles", href: "#pssm" },
+      { label: "18-Guiding Principles" },
       { label: "13-Personal Principles" },
       { label: "Pyramid Energy", href: "#explore" },
       { label: "Pyramids Everywhere" },
@@ -56,7 +56,7 @@ export const navMenu = [
       },
       {
         label: "Gallery",
-        children: [{ label: "Photos" }, { label: "Videos", href: "#videos" }, { label: "Audio", href: "#podcast" }],
+        children: [{ label: "Photos" }, { label: "Videos", href: "#explore" }, { label: "Audio", href: "#podcast" }],
       },
       {
         label: "Additional links",

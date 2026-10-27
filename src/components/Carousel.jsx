@@ -1,8 +1,5 @@
 import { Children, useCallback, useEffect, useRef, useState } from "react";
-
-const prefersReducedMotion = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+import useDragScroll, { prefersReducedMotion } from "../lib/useDragScroll";
 
 function Chevron({ direction }) {
   return (
@@ -40,7 +37,6 @@ export default function Carousel({
   className = "",
 }) {
   const trackRef = useRef(null);
-  const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: false });
   const [edges, setEdges] = useState({ scrollable: false, canPrev: false, canNext: false });
 
   const updateEdges = useCallback(() => {
@@ -89,61 +85,8 @@ export default function Carousel({
     });
   }, []);
 
-  const snapToNearest = useCallback(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    let target = 0;
-    let best = Infinity;
-    Array.from(el.children).forEach((child) => {
-      const distance = Math.abs(child.offsetLeft - el.scrollLeft);
-      if (distance < best) {
-        best = distance;
-        target = child.offsetLeft;
-      }
-    });
-    el.scrollTo({ left: target, behavior: prefersReducedMotion() ? "auto" : "smooth" });
-  }, []);
-
-  // --- mouse drag (touch uses native scrolling) ---
-  const onPointerDown = (event) => {
-    if (event.pointerType !== "mouse" || event.button !== 0) return;
-    const el = trackRef.current;
-    drag.current = { active: true, startX: event.clientX, startScroll: el.scrollLeft, moved: false };
-  };
-
-  const onPointerMove = (event) => {
-    const state = drag.current;
-    if (!state.active) return;
-    const el = trackRef.current;
-    const dx = event.clientX - state.startX;
-    if (!state.moved && Math.abs(dx) > 4) {
-      state.moved = true;
-      el.dataset.dragging = "true";
-      el.setPointerCapture(event.pointerId);
-    }
-    if (state.moved) el.scrollLeft = state.startScroll - dx;
-  };
-
-  const endDrag = (event) => {
-    const state = drag.current;
-    if (!state.active) return;
-    state.active = false;
-    if (state.moved) {
-      const el = trackRef.current;
-      if (el.hasPointerCapture?.(event.pointerId)) el.releasePointerCapture(event.pointerId);
-      delete el.dataset.dragging;
-      snapToNearest();
-    }
-  };
-
-  // A drag that ends on a link must not also count as a click.
-  const onClickCapture = (event) => {
-    if (drag.current.moved) {
-      event.preventDefault();
-      event.stopPropagation();
-      drag.current.moved = false;
-    }
-  };
+  // Mouse click-and-drag (touch uses native scrolling); glides to the nearest card on release.
+  const drag = useDragScroll(trackRef, { snap: true });
 
   const onKeyDown = (event) => {
     if (!edges.scrollable) return;
@@ -171,15 +114,10 @@ export default function Carousel({
     >
       <div
         ref={trackRef}
-        className="carousel-track no-scrollbar relative flex snap-x snap-mandatory gap-[10px] overflow-x-auto overscroll-x-contain rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400"
+        className="carousel-track drag-scroll no-scrollbar relative flex snap-x snap-mandatory gap-[10px] overflow-x-auto overscroll-x-contain rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400"
         tabIndex={edges.scrollable ? 0 : -1}
         onKeyDown={onKeyDown}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onClickCapture={onClickCapture}
-        onDragStart={(event) => event.preventDefault()}
+        {...drag}
       >
         {items.map((item, index) => (
           <div

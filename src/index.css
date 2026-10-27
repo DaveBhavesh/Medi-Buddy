@@ -10,12 +10,16 @@
   --color-cream: #fbf5ea;
   --color-saffron: #f5922f;
   --color-gold: #fbbf24;
+  /* In-between tones so every section stays in one family: night -> orchid -> plum -> saffron -> gold */
+  --color-orchid: #7a3fb0;
+  --color-orchid-deep: #5e2a91; /* orchid dark enough for text on white */
+  --color-plum: #b0359b;
   --font-display: "Oswald", "Arial Narrow", Impact, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  /* Anchor links (#pmc, #videos...) stop below the fixed header instead of under it */
+  /* Anchor links (#pmc, #explore...) stop below the fixed header instead of under it */
   scroll-padding-top: 5rem;
   /* Stop iPhone from inflating text in landscape */
   -webkit-text-size-adjust: 100%;
@@ -134,6 +138,84 @@ footer a:hover {
   }
 }
 
+/* ---------- Reading progress bar ---------- */
+/* A thin saffron-to-gold line at the very top that fills as the page is scrolled.
+   Pure CSS (scroll-driven animation); browsers without support simply don't show it. */
+.scroll-progress {
+  display: none;
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 60;
+  height: 3px;
+  pointer-events: none;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #f5922f, #fbbf24); /* saffron -> gold */
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      display: block;
+      animation: scroll-progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+@keyframes scroll-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ---------- Page rhythm: rounded panels on one cream canvas ---------- */
+/* Sections that need their own background are drawn as rounded panels inside the site's 20px
+   side margins, so the whole page reads as one continuous design instead of stacked blocks. */
+.panel {
+  margin-inline: 1.25rem;
+  border-radius: 2rem;
+}
+@media (min-width: 640px) {
+  .panel {
+    border-radius: 2.5rem;
+  }
+}
+.panel + .panel {
+  margin-top: 1.25rem;
+}
+
+/* Dark panels: deep night with a soft saffron glow and a violet glow (the logo colours). */
+.panel-dark {
+  color: #fff;
+  background:
+    radial-gradient(60% 55% at 0% 0%, rgb(245 146 47 / 0.14), transparent 70%),
+    radial-gradient(55% 60% at 100% 100%, rgb(124 58 237 / 0.22), transparent 70%),
+    linear-gradient(160deg, #241a4d, #17122e 60%); /* night-2 -> night */
+}
+
+/* Light panels: white card lifted gently off the cream page. */
+.panel-light {
+  background: #fff;
+  box-shadow:
+    0 1px 0 rgb(23 18 46 / 0.04),
+    0 24px 60px -36px rgb(23 18 46 / 0.28);
+}
+
+/* Inner spacing for content inside a panel: 20px on phones up to 48px on desktop. */
+.panel-inner {
+  padding-inline: 1.25rem;
+}
+@media (min-width: 640px) {
+  .panel-inner {
+    padding-inline: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .panel-inner {
+    padding-inline: 3rem;
+  }
+}
+
 /* ---------- Carousel ---------- */
 .no-scrollbar {
   scrollbar-width: none;
@@ -148,28 +230,77 @@ footer a:hover {
   -webkit-overflow-scrolling: touch;
 }
 
-.carousel-track img {
+/* ---------- Click-and-drag rows (see src/lib/useDragScroll.js) ---------- */
+.drag-scroll img {
   -webkit-user-drag: none;
   user-select: none;
 }
 
-/* While the mouse drags the track, turn snapping/smoothing off so it follows the pointer. */
-.carousel-track[data-dragging="true"] {
+/* While the mouse drags the row, turn snapping/smoothing off so it follows the pointer. */
+.drag-scroll[data-dragging="true"] {
   scroll-snap-type: none;
   scroll-behavior: auto;
   cursor: grabbing;
   user-select: none;
 }
 
+/* Mouse users: grab cursor, and no accidental text selection while dragging. */
 @media (hover: hover) and (pointer: fine) {
-  .carousel-track {
+  .drag-scroll {
     cursor: grab;
+    user-select: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-track {
     scroll-behavior: auto;
+  }
+}
+
+/* ---------- Swadhyay Yog swoosh ---------- */
+/* Tablet/desktop: the white title panel's left edge is an S-curve flowing down over the brown
+   photo panel (a yellow copy sits slightly to the left to draw the gap between them). */
+@media (min-width: 768px) {
+  .swadhyay-swoosh {
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0C10 0 8 45 20 65S32 100 42 100H100V0Z'/%3E%3C/svg%3E")
+      0 0 / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0C10 0 8 45 20 65S32 100 42 100H100V0Z'/%3E%3C/svg%3E")
+      0 0 / 100% 100% no-repeat;
+  }
+}
+
+/* Patriji reading: soft edges so the photo melts into the brown panel. */
+.swadhyay-photo {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent),
+    linear-gradient(to bottom, #000 70%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent),
+    linear-gradient(to bottom, #000 70%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* Quote author's photo fades into the strip on its left side. */
+.swadhyay-quote-photo {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+}
+
+/* ---------- Celebrity quotes photo fade ---------- */
+/* The photo melts into the slide colour: downwards on phones, to the right (towards the quote)
+   and slightly at the bottom from tablet up, so photo and quote read as one piece. */
+.quote-photo {
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+@media (min-width: 768px) {
+  .quote-photo {
+    -webkit-mask-image: linear-gradient(to right, #000 55%, transparent 100%),
+      linear-gradient(to bottom, #000 75%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 55%, transparent 100%),
+      linear-gradient(to bottom, #000 75%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
   }
 }
 

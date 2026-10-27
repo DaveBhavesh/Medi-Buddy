@@ -98,6 +98,17 @@ export default function AuthorCard({ author, tone }) {
   const bioId = useId();
   const video = useCardVideo(videoId, `${name} video`);
   const pointerType = useRef("mouse");
+  const readMoreRef = useRef(null);
+  const showLessRef = useRef(null);
+
+  // Move keyboard focus into the text when it opens, and back to "Read more" when it closes.
+  const wasOpen = useRef(false);
+  useEffect(() => {
+    if (open) showLessRef.current?.focus({ preventScroll: true });
+    else if (wasOpen.current) readMoreRef.current?.focus({ preventScroll: true });
+    wasOpen.current = open;
+  }, [open]);
+  const close = () => setOpen(false);
 
   const onEnter = (event) => {
     pointerType.current = event.pointerType;
@@ -128,7 +139,7 @@ export default function AuthorCard({ author, tone }) {
         />
       )}
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/45 to-black/5" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
 
       {videoId && (
         <button
@@ -147,45 +158,56 @@ export default function AuthorCard({ author, tone }) {
         </button>
       )}
 
-      {/* Name + excerpt (full text expands over the card) */}
-      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-        <h3 className="text-xl font-black leading-tight tracking-[-0.02em] sm:text-2xl">{name}</h3>
-        <p
-          id={bioId}
-          className="mt-2 line-clamp-4 text-sm leading-6 text-white/85 min-[400px]:line-clamp-5"
-        >
-          {bio}
-        </p>
+      {/* Closed: only the name and "Read more" over the photo */}
+      <div
+        className={`absolute inset-x-0 bottom-0 p-4 transition-opacity duration-300 sm:p-5 ${
+          open ? "opacity-0" : "opacity-100"
+        }`}
+        inert={open}
+      >
+        <h3 className="text-xl font-black leading-tight tracking-[-0.02em] [text-shadow:0_1px_12px_rgb(0_0_0/0.5)] sm:text-2xl">
+          {name}
+        </h3>
         <button
+          ref={readMoreRef}
           type="button"
           onClick={() => setOpen(true)}
-          aria-haspopup="dialog"
+          aria-expanded={open}
+          aria-controls={bioId}
           className="mt-3 inline-flex min-h-10 items-center rounded-full bg-white px-4 py-2 text-xs font-black text-black hover:bg-amber-300"
         >
           Read more<span className="sr-only">&nbsp;about {name}</span>
         </button>
       </div>
 
-      {open && (
+      {/* Open: the full text fades in over the same photo (darkened and softly blurred behind it). */}
+      <div
+        id={bioId}
+        role="region"
+        aria-label={`About ${name}`}
+        inert={!open}
+        onKeyDown={(event) => event.key === "Escape" && close()}
+        className={`absolute inset-0 z-20 flex flex-col bg-black/65 p-4 backdrop-blur-[3px] transition duration-300 ease-out sm:p-5 ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <h3 className="pr-12 text-xl font-black leading-tight sm:text-2xl">{name}</h3>
         <div
-          role="dialog"
-          aria-label={`About ${name}`}
-          className="absolute inset-0 z-20 flex flex-col bg-black/92 p-4 sm:p-5"
+          className={`no-scrollbar mt-3 flex-1 overflow-y-auto overscroll-contain pr-1 text-sm leading-6 text-white/90 transition duration-300 ease-out ${
+            open ? "translate-y-0 delay-75" : "translate-y-2"
+          }`}
         >
-          <h3 className="pr-12 text-xl font-black leading-tight sm:text-2xl">{name}</h3>
-          <div className="no-scrollbar mt-3 flex-1 overflow-y-auto overscroll-contain pr-1 text-sm leading-6 text-white/90">
-            {bio}
-          </div>
-          <button
-            type="button"
-            onClick={() => setOpen(false)}
-            className="mt-3 inline-flex min-h-10 w-fit items-center rounded-full bg-white px-4 py-2 text-xs font-black text-black hover:bg-amber-300"
-            autoFocus
-          >
-            Show less
-          </button>
+          {bio}
         </div>
-      )}
+        <button
+          ref={showLessRef}
+          type="button"
+          onClick={close}
+          className="mt-3 inline-flex min-h-10 w-fit items-center rounded-full bg-white px-4 py-2 text-xs font-black text-black hover:bg-amber-300"
+        >
+          Show less
+        </button>
+      </div>
     </article>
   );
 }

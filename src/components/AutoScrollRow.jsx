@@ -125,7 +125,7 @@ export default function AutoScrollRow({
       <div
         ref={trackRef}
         data-auto-track
-        className="no-scrollbar flex overflow-x-auto overscroll-x-contain rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400"
+        className="drag-scroll no-scrollbar flex overflow-x-auto overscroll-x-contain rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400"
         tabIndex={0}
         onKeyDown={onKeyDown}
         {...drag}

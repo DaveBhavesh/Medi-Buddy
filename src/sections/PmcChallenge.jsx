@@ -12,7 +12,7 @@ export default function PmcChallenge() {
 
   return (
     <section id="challenge" className="bg-white py-16 sm:py-24 lg:py-28">
-      <div className="w-full px-[10px]">
+      <div className="w-full px-5">
         <div className="w-full">
           <h2 className="whitespace-nowrap text-[clamp(1.4rem,6.6vw,4.5rem)] font-black leading-none tracking-[-0.05em]">
             {titleTop} <span className="text-amber-400">{titleAccent}</span>

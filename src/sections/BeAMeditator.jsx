@@ -20,11 +20,11 @@ function MeditatorGraphic({ photo, photoAlt, figure, figureAlt }) {
           className="absolute inset-x-0 top-0 h-[66%] w-full"
           aria-hidden="true"
         >
-          <path d="M0 0H100V62C78 70 40 74 0 100Z" fill="#050505" />
+          <path d="M0 0H100V62C78 70 40 74 0 100Z" fill="#0f0b22" />
           <path d="M0 0H100V54C78 62 40 66 0 92Z" fill="#f5922f" />
         </svg>
         <div className="absolute left-[7%] right-[5%] top-[6%] text-right">
-          <p className="font-display text-[5.4cqw] font-medium italic leading-none text-[#2a1a08]">
+          <p className="font-display text-[5.4cqw] font-medium italic leading-none text-night">
             Quick 15 mins
           </p>
           <p className="mt-[1cqw] font-display text-[7cqw] font-medium uppercase leading-[0.95] text-white">
@@ -41,8 +41,8 @@ function MeditatorGraphic({ photo, photoAlt, figure, figureAlt }) {
         </div>
         <div className="absolute bottom-[6%] right-[5%] text-right text-white">
           <a
-            href="#videos"
-            className="mb-[1.5cqw] inline-flex items-center gap-1.5 rounded-full bg-[#f5922f] px-3 py-1 text-[2.8cqw] font-semibold text-[#2a1a08] min-[640px]:text-sm"
+            href="#explore"
+            className="mb-[1.5cqw] inline-flex items-center gap-1.5 rounded-full bg-[#f5922f] px-3 py-1 text-[2.8cqw] font-semibold text-night min-[640px]:text-sm"
           >
             watch
             <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true">
@@ -72,8 +72,8 @@ export default function BeAMeditator() {
   const { title, subtitle, copy, figure, figureAlt, photo, photoAlt, cta } = beAMeditator;
 
   return (
-    <section id="be-a-meditator" className="bg-gradient-to-b from-night-2 to-night py-16 text-white sm:py-24">
-      <div className="grid w-full items-center gap-10 px-[10px] lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 xl:gap-20">
+    <section id="be-a-meditator" className="panel panel-dark py-16 sm:py-24">
+      <div className="panel-inner grid w-full items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 xl:gap-20">
         <div className="order-2 lg:order-1">
           <MeditatorGraphic photo={photo} photoAlt={photoAlt} figure={figure} figureAlt={figureAlt} />
         </div>

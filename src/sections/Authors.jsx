@@ -4,8 +4,8 @@ import { authors } from "../data/authors";
 
 export default function Authors() {
   return (
-    <section id="authors" className="bg-white py-16 sm:py-24" aria-labelledby="authors-heading">
-      <div className="w-full px-[10px]">
+    <section id="authors" className="panel panel-light py-16 sm:py-24" aria-labelledby="authors-heading">
+      <div className="panel-inner w-full">
         <h2
           id="authors-heading"
           className="text-3xl font-black leading-tight tracking-[-0.04em] sm:text-5xl lg:text-6xl"

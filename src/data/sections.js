@@ -47,8 +47,8 @@ export const heroSlides = [
 
 // 3. About Patriji (wording supplied by the client, kept as written)
 export const aboutPatriji = {
-  image: "img-000.jpg",
-  imageAlt: "Brahmarshi Pitamaha Patriji",
+  // Background video: "What is ANAPANASATI? | Patriji" (PMC English, youtube.com/watch?v=6Er_tAyLt9k)
+  video: { id: "6Er_tAyLt9k", title: "Background video: Brahmarshi Pitamaha Patriji speaking" },
   title: "About Patri Ji",
   intro:
     "Patriji was born in the year 1947 at Bodhan, Andhra Pradesh. A Family man with ag. M.sc degree.He became enlightened in the year 1979, since then his journey to awaken and enlighten every individual on the Spiritual path began. As a result of his work, PSSM now has presence in more than 40 countries with crores and crores on people imbibing meditation.",
@@ -78,11 +78,13 @@ export const whyMeditation = {
     "Self-realisation",
   ],
   cta: { label: "Learn to meditate", href: "#be-a-meditator" },
+  // Autoplaying video docked into the photo's corner:
+  // "10 Minutes Beginner's Guide to Meditation by Brahmarshi Patriji" (PMC Hindi, youtube.com/watch?v=MsWhoEXtnVk)
   card: {
-    image: "img-001.jpg",
-    imageAlt: "Patriji addressing a vast audience from the stage",
+    videoId: "MsWhoEXtnVk",
+    videoTitle: "Brahmarshi Patriji: beginner's guide to meditation",
     label: "Watch video",
-    href: "#videos",
+    href: "#explore",
   },
 };
 
@@ -113,7 +115,7 @@ export const testimonialCategories = [
     id: "career",
     title: "Career",
     description: "Career Excellence, sharper decision-making and strong leadership skills. Know more..",
-    poster: "",
+    poster: "Career.jpg",
     videoId: "",
   },
   {
@@ -121,7 +123,7 @@ export const testimonialCategories = [
     title: "Relationships",
     description:
       "Nurture meaningful, fruitful relationships and experience harmony in every aspect of life. Click..",
-    poster: "",
+    poster: "Relationships.jpg",
     videoId: "",
   },
   {
@@ -143,7 +145,7 @@ export const testimonialCategories = [
     title: "Astral Travel Experiences",
     description:
       "Expanding consciousness through out-of-body experiences and travelling into higher-worlds. Click to know..",
-    poster: "",
+    poster: "Astral Travel Experiences.jpg",
     videoId: "",
   },
 ];
@@ -157,16 +159,21 @@ export const beAMeditator = {
   figureAlt: "Patriji seated in meditation, wearing an orange vest",
   photo: "img-043.jpg",
   photoAlt: "Patriji meditating on stage beside a devotee",
-  cta: { label: "Watch guided meditation", href: "#videos" },
+  cta: { label: "Watch guided meditation", href: "#explore" },
 };
 
 // 8. Swadhyay Yog
 export const swadhyay = {
   title: ["SWADHYAY", "YOG"],
   by: "by Brahmarshi Patriji",
-  photo: "img-012.jpg",
-  photoAlt: "Patriji seated with a microphone and a book on his lap",
+  // Photo of Patriji reading, shown inside the brown panel and faded into it at the edges.
+  // (File name is case-sensitive on Vercel.)
+  photo: "Patriji-reading.jpg",
+  photoAlt: "Brahmarshi Patriji reading a book, with spiritual books behind him",
+  // Photo of the quote's author, shown faded on the right of the quote strip (public/assets).
+  quoteBySlug: "linda-goodman",
+  quoteByAsset: "Linda-Goodman.jpg",
   quote: "“Books are undeniably a swift shortcut to Enlightenment”",
   quoteBy: "Linda Goodman",
-  watch: { label: "watch", href: "#videos" },
+  watch: { label: "watch", href: "#explore" },
 };

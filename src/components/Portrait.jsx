@@ -1,12 +1,12 @@
 import { getPersonPhoto, initials } from "../lib/people";
 
 const palettes = [
-  "from-[#5b3a9e] to-[#e0558f]",
-  "from-[#0e4a80] to-[#2b8be8]",
-  "from-[#b45309] to-[#fbbf24]",
-  "from-[#0f766e] to-[#34d399]",
-  "from-[#7c2d12] to-[#f97316]",
-  "from-[#334155] to-[#94a3b8]",
+  "from-night-2 to-orchid",
+  "from-[#4b2a7f] to-plum",
+  "from-saffron to-gold",
+  "from-night to-[#4b2a7f]",
+  "from-plum to-saffron",
+  "from-orchid to-plum",
 ];
 
 /**

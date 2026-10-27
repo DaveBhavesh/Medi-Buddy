@@ -45,8 +45,8 @@ function LegacyBottomBar() {
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-night-deep pt-10 text-white/70">
-      <div className="w-full px-[10px]">
+    <footer id="contact" className="mt-5 rounded-t-[2rem] bg-night-deep pt-10 text-white/70 sm:rounded-t-[2.5rem]">
+      <div className="w-full px-5">
         {/* Each config row is one column; stacks to a single column on phones. */}
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 pb-12 sm:grid-cols-2 lg:grid-cols-4">
           {footerRows.map((row) => (

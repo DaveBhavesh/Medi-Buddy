@@ -155,7 +155,7 @@ function DesktopNav() {
               </button>
               <div
                 id={panelId}
-                className={`absolute left-1/2 top-full z-50 w-[min(18rem,calc(100vw-20px))] -translate-x-1/2 pt-2 transition duration-150 ${
+                className={`absolute left-1/2 top-full z-50 w-[min(18rem,calc(100vw-40px))] -translate-x-1/2 pt-2 transition duration-150 ${
                   open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
                 }`}
               >
@@ -177,7 +177,7 @@ function MobileNav({ onNavigate }) {
     <nav
       id="mobile-menu"
       aria-label="Mobile"
-      className="mx-[10px] max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-2xl bg-night/97 p-3 shadow-2xl lg:hidden"
+      className="mx-5 max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain rounded-2xl bg-night/97 p-3 shadow-2xl lg:hidden"
     >
       <ul>
         {navMenu.map((menu, i) => {
@@ -247,7 +247,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="flex w-full items-center justify-between px-[10px] py-2 sm:py-3 lg:px-8 lg:py-4">
+      <div className="flex w-full items-center justify-between px-5 py-2 sm:py-3 lg:py-4">
         <a href="#top" className="flex items-center" aria-label="PMC World home">
           <img
             src="/assets/pmc-world-logo.png"

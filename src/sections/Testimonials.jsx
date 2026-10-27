@@ -19,9 +19,9 @@ const icons = {
 };
 
 const gradients = {
-  career: "from-[#0e4a80] to-[#2b8be8]",
-  relationships: "from-[#9d174d] to-[#f472b6]",
-  "astral-travel": "from-[#312e81] to-[#7c3aed]",
+  career: "from-night-2 to-orchid",
+  relationships: "from-orchid to-plum",
+  "astral-travel": "from-night to-[#4b2a7f]",
 };
 
 function PlayBadge() {
@@ -42,7 +42,7 @@ function Thumbnail({ item }) {
       : null;
 
   return (
-    <div className="relative aspect-[4/5] overflow-hidden bg-neutral-800">
+    <div className="relative h-full overflow-hidden bg-neutral-800">
       {src ? (
         <img
           src={src}
@@ -87,8 +87,8 @@ export default function Testimonials() {
   const [playing, setPlaying] = useState(null);
 
   return (
-    <section id="testimonials" className="bg-night py-16 text-white sm:py-24">
-      <div className="w-full px-[10px]">
+    <section id="testimonials" className="panel panel-dark py-16 sm:py-24">
+      <div className="panel-inner w-full">
         <p className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">Real stories</p>
         <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.03em] sm:text-5xl lg:text-6xl">
           Testimonials by Category
@@ -101,10 +101,11 @@ export default function Testimonials() {
           label="testimonials"
           theme="dark"
           className="mt-10"
-          itemClassName="w-[84%] min-[560px]:w-[calc((100%-10px)/2)] lg:w-[calc((100%-20px)/3)] xl:w-[calc((100%-30px)/4)]"
+          // Same widths and 3:4 shape as the author cards.
+          itemClassName="w-[80%] min-[520px]:w-[calc((100%-10px)/2)] md:w-[calc((100%-20px)/3)] lg:w-[calc((100%-30px)/4)] xl:w-[calc((100%-40px)/5)]"
         >
           {testimonialCategories.map((item) => (
-            <article key={item.id} className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white text-black">
+            <article key={item.id} className="group flex aspect-[3/4] w-full flex-col overflow-hidden rounded-2xl bg-white text-black">
               <button
                 type="button"
                 onClick={() => item.videoId && setPlaying(item)}
@@ -112,17 +113,19 @@ export default function Testimonials() {
                 aria-label={
                   item.videoId ? `Play ${item.title} testimonial video` : `${item.title} testimonial video (coming soon)`
                 }
-                className={`block w-full text-left focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-amber-500 ${
+                className={`block min-h-0 w-full flex-1 text-left focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-amber-500 ${
                   item.videoId ? "cursor-pointer" : "cursor-default"
                 }`}
               >
                 <Thumbnail item={item} />
               </button>
-              <div className="flex-1 p-5 sm:p-6">
+              <div className="p-4 sm:p-5">
                 <h3 className="text-xl font-black leading-tight tracking-[-0.02em] sm:text-2xl">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-neutral-600 sm:text-base">{item.description}</p>
+                <p className="mt-1.5 line-clamp-2 text-sm leading-6 text-neutral-600" title={item.description}>
+                  {item.description}
+                </p>
               </div>
             </article>
           ))}

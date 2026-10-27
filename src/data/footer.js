@@ -13,9 +13,9 @@ export const footerRows = [
     label: "Main links",
     items: [
       { label: "Upcoming Free Workshop" },
-      { label: "Live TV", href: "#videos" },
+      { label: "Live TV" },
       { label: "Patriji", href: "#patriji" },
-      { label: "PSSM", href: "#pssm" },
+      { label: "PSSM", href: "#pmc" },
       { label: "Vegetarianism" },
       { label: "Pyramid Power", href: "#explore" },
       // >>> FUTURE: add more first-row references here (they wrap automatically).

@@ -2,7 +2,7 @@
 export default function QuoteBanner() {
   return (
     <section className="bg-white py-4 sm:py-8">
-      <div className="w-full px-[10px]">
+      <div className="w-full px-5">
         <figure className="relative isolate overflow-hidden rounded-[1.5rem] bg-[#5a3a12] sm:rounded-[2.25rem]">
           <img
             src="/assets/img-026.jpg"

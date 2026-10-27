@@ -46,7 +46,7 @@ export default function HeroSlider({ label, slides, overlay, interval = 6000, cl
       <div
         ref={trackRef}
         data-hero-track
-        className="carousel-track no-scrollbar flex snap-x snap-mandatory gap-[10px] overflow-x-auto overscroll-x-contain rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400 sm:rounded-3xl"
+        className="carousel-track drag-scroll no-scrollbar flex snap-x snap-mandatory gap-[10px] overflow-x-auto overscroll-x-contain rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400 sm:rounded-3xl"
         tabIndex={0}
         onKeyDown={onKeyDown}
         {...drag}

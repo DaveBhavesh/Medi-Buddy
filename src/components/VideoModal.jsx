@@ -25,7 +25,7 @@ export default function VideoModal({ videoId, title, onClose }) {
       role="dialog"
       aria-modal="true"
       aria-label={title}
-      className="fixed inset-0 z-[60] grid place-items-center bg-black/85 p-[10px] backdrop-blur-sm"
+      className="fixed inset-0 z-[60] grid place-items-center bg-black/85 p-5 backdrop-blur-sm"
       onClick={onClose}
     >
       <div className="w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>

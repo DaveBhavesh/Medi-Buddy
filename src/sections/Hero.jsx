@@ -6,10 +6,10 @@ import { heroSlides } from "../data/sections";
 
 export default function Hero() {
   return (
-    <section className="relative bg-night pb-[10px] text-white">
+    <section className="relative rounded-b-[2rem] bg-night pb-5 text-white sm:rounded-b-[2.5rem]">
       <Header />
 
-      <div className="relative z-10 mx-auto w-full px-[10px] pb-10 pt-28 text-center sm:pb-14 sm:pt-36 lg:pb-16 lg:pt-40">
+      <div className="relative z-10 mx-auto w-full px-5 pb-8 pt-24 text-center sm:pb-10 sm:pt-28 lg:pb-12 lg:pt-32">
         <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-amber-300 sm:text-sm sm:tracking-[0.32em]">
           Awaken. Meditate. Transform.
         </p>
@@ -36,13 +36,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Slider: fills the space between the 10px gutters; the video card floats over every slide. */}
-      <div className="px-[10px]">
+      {/* Slider: fills the space between the 20px side margins; the video card floats over every slide. */}
+      <div className="px-5">
         <HeroSlider
           label="Featured images"
           slides={heroSlides}
           overlay={
-            <div className="absolute bottom-[9%] right-[2.5%] z-10 w-[clamp(52px,13vw,230px)] sm:bottom-[10%]">
+            <div className="absolute bottom-[5%] right-[2.5%] z-10 w-[clamp(96px,26vw,150px)] sm:w-[clamp(150px,20vw,240px)] lg:w-[clamp(240px,19vw,340px)]">
               <HeroVideoCard videoId={heroVideo.id} title={heroVideo.title} />
             </div>
           }
