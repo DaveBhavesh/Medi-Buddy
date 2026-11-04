@@ -259,10 +259,10 @@ export default function Header() {
         </a>
         <DesktopNav />
         <div className="hidden items-center gap-4 lg:flex">
-          <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-xs font-bold backdrop-blur">
+          <button className="rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white/90 backdrop-blur hover:bg-white/20">
             Join the Movement
           </button>
-          <button className="rounded-full bg-amber-400 px-6 py-2.5 text-xs font-extrabold text-black">
+          <button className="rounded-full bg-amber-400 px-6 py-2.5 text-sm font-extrabold text-black shadow-lg shadow-amber-400/25 hover:bg-amber-300">
             Donate
           </button>
         </div>

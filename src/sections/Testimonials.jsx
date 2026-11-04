@@ -89,8 +89,8 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="panel panel-dark py-16 sm:py-24">
       <div className="panel-inner w-full">
-        <p className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">Real stories</p>
-        <h2 className="mt-3 text-3xl font-black leading-tight tracking-[-0.03em] sm:text-5xl lg:text-6xl">
+        <p className="eyebrow text-amber-400">Real stories</p>
+        <h2 className="section-title mt-3">
           Testimonials by Category
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
@@ -101,11 +101,11 @@ export default function Testimonials() {
           label="testimonials"
           theme="dark"
           className="mt-10"
-          // Same widths and 3:4 shape as the author cards.
-          itemClassName="w-[80%] min-[520px]:w-[calc((100%-10px)/2)] md:w-[calc((100%-20px)/3)] lg:w-[calc((100%-30px)/4)] xl:w-[calc((100%-40px)/5)]"
+          // Large tiles: at most 4 across, in the tall 2:3 shape of the Explore tiles.
+          itemClassName="w-[80%] min-[520px]:w-[calc((100%-10px)/2)] md:w-[calc((100%-20px)/3)] lg:w-[calc((100%-30px)/4)]"
         >
           {testimonialCategories.map((item) => (
-            <article key={item.id} className="group flex aspect-[3/4] w-full flex-col overflow-hidden rounded-2xl bg-white text-black">
+            <article key={item.id} className="group flex aspect-[2/3] w-full flex-col overflow-hidden rounded-2xl bg-white text-black">
               <button
                 type="button"
                 onClick={() => item.videoId && setPlaying(item)}

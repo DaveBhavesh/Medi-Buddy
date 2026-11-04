@@ -18,7 +18,7 @@ function ExploreCard({ card }) {
       onPointerLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
-      className="group relative block aspect-[3/4] overflow-hidden rounded-2xl bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+      className="group relative block aspect-[2/3] overflow-hidden rounded-2xl bg-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
     >
       <YouTubeLoop
         videoId={card.videoId}
@@ -40,7 +40,7 @@ export default function Explore() {
       <div className="w-full px-5">
         {/* Centered and always on one line: the size follows the screen width (the line is about
             31 characters' width per font-size), capped at 3.25rem on large screens. */}
-        <h2 className="whitespace-nowrap text-center text-[min(3.25rem,calc((100vw-40px)/31))] font-black leading-tight tracking-[-0.04em]">
+        <h2 className="whitespace-nowrap text-center text-[min(3.25rem,calc((100vw-40px)/31))] font-black leading-tight tracking-[-0.02em]">
           Do you have a hunger to increase the quality of your life?
         </h2>
 
@@ -48,9 +48,8 @@ export default function Explore() {
           label="explore topics"
           className="mt-10"
           speed={45}
-          // Same card size as the author and testimonial cards. Those sit inside a panel, whose inner
-          // padding is 20px / 32px (sm) / 48px (lg) each side, so it is taken off here before dividing.
-          itemClassName="w-[calc((100cqw-40px)*0.8)] min-[520px]:w-[calc((100cqw-50px)/2)] sm:w-[calc((100cqw-74px)/2)] md:w-[calc((100cqw-84px)/3)] lg:w-[calc((100cqw-126px)/4)] xl:w-[calc((100cqw-136px)/5)]"
+          // Tall portrait tiles: 300px wide at 2:3 (450px tall), or 80% of the row on narrow phones.
+          itemClassName="w-[min(300px,80cqw)]"
         >
           {exploreCards.map((card) => (
             <ExploreCard key={card.title} card={card} />

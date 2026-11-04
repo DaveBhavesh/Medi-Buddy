@@ -23,15 +23,15 @@ export default function AboutPatriji() {
         {/* Darkens the video for legible text; darker while the biography is open. */}
         <div
           className={`absolute inset-0 bg-night transition-opacity duration-500 ${
-            open ? "opacity-75" : "opacity-45"
+            open ? "opacity-85" : "opacity-45"
           }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-night/60" />
       </figure>
 
       <div className="panel-inner w-full">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h2 className="text-5xl font-black leading-none tracking-[-0.045em] [text-shadow:0_2px_24px_rgb(0_0_0/0.5)] sm:text-7xl lg:text-8xl">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+          <h2 className="text-5xl font-black leading-none tracking-[-0.015em] [text-shadow:0_2px_24px_rgb(0_0_0/0.5)] sm:text-7xl lg:text-8xl">
             {title}
           </h2>
 
@@ -43,7 +43,8 @@ export default function AboutPatriji() {
             aria-hidden={!open}
           >
             <div className="overflow-hidden" inert={!open}>
-              <div className="space-y-5 pt-8 text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
+              {/* Large, full-white text with a soft shadow so it stays readable over the moving video. */}
+              <div className="space-y-6 pt-8 text-lg font-medium leading-8 text-white [text-shadow:0_1px_12px_rgb(0_0_0/0.65)] sm:text-xl sm:leading-9 lg:text-2xl lg:leading-[1.6]">
                 <p>{intro}</p>
                 <p>{more}</p>
               </div>

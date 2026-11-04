@@ -17,7 +17,7 @@ export default function QuoteBanner() {
           <div className="grid min-h-[22rem] items-center px-6 py-12 sm:px-10 md:min-h-[26rem] md:grid-cols-2 lg:min-h-[30rem]">
             <span className="hidden md:block" aria-hidden="true" />
             <blockquote>
-              <p className="text-[clamp(1.5rem,3.2vw,3.25rem)] font-black leading-[1.1] tracking-[-0.03em] text-white">
+              <p className="text-[clamp(1.5rem,3.2vw,3.25rem)] font-black leading-[1.1] tracking-[-0.01em] text-white">
                 <span className="text-amber-300">
                   &ldquo;Live quietly in the moment and see the beauty of all before you.
                 </span>{" "}

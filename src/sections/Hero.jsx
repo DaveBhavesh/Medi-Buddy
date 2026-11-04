@@ -10,10 +10,10 @@ export default function Hero() {
       <Header />
 
       <div className="relative z-10 mx-auto w-full px-5 pb-8 pt-24 text-center sm:pb-10 sm:pt-28 lg:pb-12 lg:pt-32">
-        <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-amber-300 sm:text-sm sm:tracking-[0.32em]">
+        <p className="eyebrow mb-4 text-amber-300">
           Awaken. Meditate. Transform.
         </p>
-        <h1 className="text-[2.6rem] font-black leading-[0.95] tracking-[-0.055em] min-[400px]:text-5xl sm:text-7xl lg:text-[clamp(4rem,7.6vw,9rem)] lg:leading-none">
+        <h1 className="text-[2.6rem] font-black leading-[0.95] tracking-[-0.02em] min-[400px]:text-5xl sm:text-7xl lg:text-[clamp(4rem,7.6vw,9rem)] lg:leading-none">
           Awaken your <span className="max-lg:block">inner master</span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-white/80 sm:mt-6 sm:text-base lg:mt-8 lg:max-w-3xl lg:text-xl lg:leading-8">

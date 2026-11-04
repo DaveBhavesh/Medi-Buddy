@@ -1,14 +1,18 @@
+import { useState } from "react";
 import { pmcWorld } from "../data/content";
 
+const WATCH_VIDEO_ID = "LVgOeuncfik";
+
 /**
- * Poster-style graphic from the reference: photo card, wave with "what is PMC world?", Patriji overlapping.
+ * Poster-style graphic from the reference: photo card with a wave and "what is PMC world?".
  * Phones/tablets: a 4:5 card. Desktop: exactly as tall as the text beside it (but never taller than
  * 4:5), so the image covers the slide without making the section longer than its text.
  */
 function PmcGraphic() {
+  const [playing, setPlaying] = useState(false);
   return (
     <div className="relative mx-auto aspect-[4/5] w-full max-w-[560px] [container-type:inline-size] lg:absolute lg:inset-x-0 lg:top-1/2 lg:aspect-auto lg:h-[min(100cqh,125cqw)] lg:max-w-none lg:-translate-y-1/2">
-      <div className="absolute inset-y-0 left-0 w-[78%] overflow-hidden rounded-tl-[2rem] rounded-tr-[4.5rem] rounded-bl-[4.5rem] rounded-br-[2rem] bg-neutral-800">
+      <div className="absolute inset-0 overflow-hidden rounded-tl-[2rem] rounded-tr-[4.5rem] rounded-bl-[4.5rem] rounded-br-[2rem] bg-neutral-800">
         <img
           src="/assets/img-023.jpg"
           alt="A crowd of meditators with raised hands listening to Patriji"
@@ -32,25 +36,37 @@ function PmcGraphic() {
         </div>
       </div>
 
-      <a
-        href="#explore"
-        className="absolute left-[6%] top-[4%] z-20 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[3.2cqw] font-semibold text-orchid-deep shadow-md min-[560px]:text-sm"
-      >
-        watch
-        <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true">
-          <path d="M6 4v16l14-8z" />
-        </svg>
-      </a>
-
-      <img
-        src="/assets/patriji-red-cutout.webp"
-        alt="Patriji seated in a red kurta"
-        width="863"
-        height="1400"
-        loading="lazy"
-        decoding="async"
-        className="absolute bottom-0 right-0 z-10 h-[72%] w-auto drop-shadow-[0_18px_28px_rgba(0,0,0,0.28)]"
-      />
+      {playing ? (
+        // "watch" plays the video right here, inside the card, in place of the poster.
+        <div className="absolute inset-0 z-30 overflow-hidden rounded-tl-[2rem] rounded-tr-[4.5rem] rounded-bl-[4.5rem] rounded-br-[2rem] bg-black">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${WATCH_VIDEO_ID}?autoplay=1&rel=0&playsinline=1`}
+            title="What is PMC World?"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full"
+          />
+          <button
+            type="button"
+            onClick={() => setPlaying(false)}
+            aria-label="Close video"
+            className="absolute right-[6%] top-[4%] grid h-10 w-10 place-items-center rounded-full bg-white/90 text-xl leading-none text-black shadow-md hover:bg-white"
+          >
+            ×
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          className="absolute left-[6%] top-[4%] z-20 inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[3.2cqw] font-semibold text-orchid-deep shadow-md min-[560px]:text-sm"
+        >
+          watch
+          <svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor" aria-hidden="true">
+            <path d="M6 4v16l14-8z" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
@@ -68,10 +84,10 @@ export default function PmcWorld() {
               <span className="h-2 w-2 rounded-full bg-orchid" aria-hidden="true" />
               {eyebrow}
             </p>
-            <h2 className="mt-5 text-5xl font-black leading-none tracking-[-0.045em] text-night sm:text-7xl lg:text-8xl">
+            <h2 className="mt-5 text-5xl font-black leading-none tracking-[-0.015em] text-night sm:text-7xl lg:text-8xl">
               {title}
             </h2>
-            <h3 className="mt-5 text-2xl font-bold italic leading-tight sm:text-3xl lg:text-4xl">{subtitle}</h3>
+            <h3 className="mt-5 font-serif text-2xl font-medium italic leading-tight sm:text-3xl lg:text-4xl">{subtitle}</h3>
             {paragraphs.map((text) => (
               <p key={text} className="mt-5 max-w-4xl text-base leading-7 text-neutral-700 sm:text-lg sm:leading-8">
                 {text}

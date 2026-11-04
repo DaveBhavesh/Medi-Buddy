@@ -5,6 +5,9 @@ import { whyMeditation } from "../data/sections";
 // two concave curves, so they read as one shape. The curves are drawn by painting the section
 // colour (cream) over the edges: `fill` = cream inside a quarter circle, `round` = cream outside it.
 const cream = "var(--color-cream)";
+// Colour of the photo's bottom-right edge (snow), sampled from the photo. The video card fades in
+// from this colour so the photo appears to flow into the video.
+const photoEdge = "#c8cad5";
 const fill = (at) => ({
   background: `radial-gradient(circle at ${at}, ${cream} calc(var(--r) - 0.5px), transparent var(--r))`,
 });
@@ -26,7 +29,7 @@ export default function WhyMeditation() {
       <div className="w-full px-5 [--r:1.75rem] xl:[--r:2.25rem]">
         <h2
           id="why-meditation-heading"
-          className="whitespace-nowrap text-center text-[clamp(2.25rem,9vw,8.5rem)] font-black leading-[0.95] tracking-[-0.055em]"
+          className="whitespace-nowrap text-center text-[clamp(2.25rem,9vw,8.5rem)] font-black leading-[0.95] tracking-[-0.02em]"
         >
           {titleTop} <span className="text-amber-500">{titleAccent}</span>
         </h2>
@@ -80,6 +83,14 @@ export default function WhyMeditation() {
             {/* Sizes the visible part of the card to 16:9 (plus the hidden --r strip on desktop). */}
             <span className="block aspect-video" aria-hidden="true" />
             <YouTubeLoop videoId={card.videoId} title={card.videoTitle} ratio={16 / 9} />
+            {/* Desktop: the photo's colour washes down into the video, then fades out. */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 hidden lg:block"
+              style={{
+                background: `linear-gradient(to bottom, ${photoEdge} 0%, ${photoEdge} calc(var(--r) * 1.5), color-mix(in srgb, ${photoEdge} 45%, transparent) 40%, transparent 75%)`,
+              }}
+            />
             <div aria-hidden="true" className="hidden lg:block">
               <span className="absolute left-[var(--r)] right-0 top-0 z-10 h-[var(--r)]" style={{ background: cream }} />
               <span className="absolute left-0 top-0 z-10 size-[var(--r)]" style={fill("top right")} />

@@ -6,11 +6,12 @@ export default function Authors() {
   return (
     <section id="authors" className="panel panel-light py-16 sm:py-24" aria-labelledby="authors-heading">
       <div className="panel-inner w-full">
+        <p className="eyebrow text-amber-500">Recommended reading</p>
         <h2
           id="authors-heading"
-          className="text-3xl font-black leading-tight tracking-[-0.04em] sm:text-5xl lg:text-6xl"
+          className="section-title mt-3"
         >
-          MUST READ AUTHORS/BOOKS
+          Must-read authors &amp; books
         </h2>
 
         <Carousel

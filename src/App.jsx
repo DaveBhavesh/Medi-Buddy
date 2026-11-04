@@ -41,10 +41,8 @@ function App() {
               />
             </div>
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.25em] text-amber-500">
-                Listen. Learn. Awaken.
-              </p>
-              <h2 className="mt-3 text-3xl font-black leading-tight min-[400px]:text-4xl sm:text-6xl">
+              <p className="eyebrow text-amber-500">Listen. Learn. Awaken.</p>
+              <h2 className="section-title mt-3">
                 The Pyramid Spiritual Societies Podcast
               </h2>
               <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
@@ -105,21 +103,21 @@ function App() {
             <p className="inline-block bg-amber-400 px-3 py-1 text-xs font-black sm:text-sm">
               1,50,000+ COPIES SOLD, 5+ LANGUAGES
             </p>
-            <h2 className="mt-6 text-4xl font-black leading-none tracking-[-0.05em] sm:text-5xl">
+            <h2 className="section-title mt-6">
               <span className="text-amber-500">PYRAMID</span> DHYAN JAGAT
             </h2>
-            <h3 className="mt-3 text-xl font-semibold italic sm:text-2xl">Magazine</h3>
+            <h3 className="mt-3 font-serif text-xl font-medium italic sm:text-2xl">Magazine</h3>
             <p className="mt-7 text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
               Your spiritual insight delivered every two months. A bi-monthly Hindi magazine
               dedicated to the science of meditation, pyramid energy research, vegetarian wisdom,
               and teachings of Indian gurus.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <button className="rounded-full border border-black px-6 py-3 font-black">
-                Join the Movement
-              </button>
               <button className="rounded-full bg-black px-6 py-3 font-black text-white">
                 Get Your Copy Today
+              </button>
+              <button className="rounded-full border border-black/25 px-6 py-3 font-bold">
+                Join the Movement
               </button>
             </div>
           </div>
@@ -129,22 +127,20 @@ function App() {
       {/* Volunteer */}
       <section id="volunteer" className="panel panel-dark py-16 sm:py-20">
         <div className="panel-inner grid w-full items-center gap-10 md:grid-cols-2">
+          <img
+            src="/assets/img-032.jpg"
+            alt="Young people meditating"
+            loading="lazy"
+            decoding="async"
+            className="w-full rounded-2xl"
+          />
           <div>
-            <h2 className="text-4xl font-black text-amber-400 sm:text-6xl">Be a volunteer</h2>
-            <img
-              src="/assets/img-032.jpg"
-              alt="Young people meditating"
-              loading="lazy"
-              decoding="async"
-              className="mt-8 w-full rounded-2xl"
-            />
-          </div>
-          <div>
-            <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-400 sm:text-sm sm:tracking-[0.28em]">
+            <p className="eyebrow text-amber-400">Be a volunteer</p>
+            <h2 className="section-title mt-3">Become 1% Better Every Day</h2>
+            <p className="mt-3 font-serif text-xl font-medium italic text-amber-300 sm:text-2xl">
               Upgrade your mind. Elevate your life.
             </p>
-            <h3 className="mt-4 text-3xl font-black sm:text-4xl">Become 1% Better Every Day</h3>
-            <p className="mt-6 leading-7 text-white/65">
+            <p className="mt-6 text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
               PMC World opens up meaningful ways to serve and become a valued member of a thriving
               community. Volunteer your knowledge, creativity, and time to help share meditation
               with the world.

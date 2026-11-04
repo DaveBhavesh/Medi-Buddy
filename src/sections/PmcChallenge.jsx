@@ -14,7 +14,7 @@ export default function PmcChallenge() {
     <section id="challenge" className="bg-white py-16 sm:py-24 lg:py-28">
       <div className="w-full px-5">
         <div className="w-full">
-          <h2 className="whitespace-nowrap text-[clamp(1.4rem,6.6vw,4.5rem)] font-black leading-none tracking-[-0.05em]">
+          <h2 className="whitespace-nowrap text-[clamp(1.4rem,6.6vw,4.5rem)] font-black leading-none tracking-[-0.015em]">
             {titleTop} <span className="text-amber-400">{titleAccent}</span>
           </h2>
 
@@ -32,7 +32,7 @@ export default function PmcChallenge() {
                 className="absolute right-[6%] top-[8%] flex flex-col items-end text-right text-[#f8de5c] min-[520px]:top-1/2 min-[520px]:-translate-y-1/2"
                 aria-hidden="true"
               >
-                <span className="text-[clamp(6rem,19vw,8rem)] font-black leading-[0.8] tracking-[-0.06em] min-[520px]:text-[clamp(7rem,15vw,16rem)] lg:text-[clamp(8rem,13vw,15rem)]">
+                <span className="text-[clamp(6rem,19vw,8rem)] font-black leading-[0.8] tracking-[-0.015em] min-[520px]:text-[clamp(7rem,15vw,16rem)] lg:text-[clamp(8rem,13vw,15rem)]">
                   {panel.number}
                 </span>
                 <span className="mt-2 text-lg font-black uppercase tracking-[0.35em] sm:text-2xl lg:text-3xl">
@@ -68,7 +68,7 @@ export default function PmcChallenge() {
               {liveOn.map((name) => (
                 <span
                   key={name}
-                  className="text-3xl font-black tracking-[-0.04em] text-neutral-300 sm:text-4xl lg:text-5xl"
+                  className="text-3xl font-black tracking-[-0.02em] text-neutral-300 sm:text-4xl lg:text-5xl"
                 >
                   {name}
                 </span>

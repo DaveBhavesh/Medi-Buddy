@@ -79,12 +79,12 @@ export default function BeAMeditator() {
         </div>
 
         <div className="order-1 text-center lg:order-2 lg:text-left">
-          <h2 className="text-[clamp(2.1rem,9vw,5.5rem)] font-black leading-none tracking-[-0.045em] lg:text-[clamp(3rem,5.2vw,6rem)]">
+          <h2 className="text-[clamp(2.1rem,9vw,5.5rem)] font-black leading-none tracking-[-0.015em] lg:text-[clamp(3rem,5.2vw,6rem)]">
             <span className="text-white">{title[0]}</span>{" "}
             <span className="text-yellow-300">{title[1]}</span>{" "}
             <span className="text-saffron">{title[2]}</span>
           </h2>
-          <p className="mt-5 text-2xl font-bold italic sm:text-4xl lg:text-5xl">{subtitle}</p>
+          <p className="mt-5 font-serif text-2xl font-medium italic sm:text-4xl lg:text-5xl">{subtitle}</p>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/80 sm:text-base sm:leading-7 lg:mx-0 lg:max-w-xl lg:text-lg lg:leading-8">
             {copy}
           </p>

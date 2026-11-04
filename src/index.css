@@ -15,6 +15,29 @@
   --color-orchid-deep: #5e2a91; /* orchid dark enough for text on white */
   --color-plum: #b0359b;
   --font-display: "Oswald", "Arial Narrow", Impact, sans-serif;
+  /* soft italic serif for quotes, bylines and accent subtitles */
+  --font-serif: "Fraunces Variable", Georgia, "Times New Roman", serif;
+}
+
+/* Shared type scale so every standard section reads at the same level.
+   Feature sections (Hero, Why Meditation, posters) keep their own display sizes. */
+@utility section-title {
+  font-size: clamp(2.25rem, 1.4rem + 3.6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Small uppercase label above a section title; colour is set per section */
+@utility eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  @media (width >= 40rem) {
+    font-size: 0.875rem;
+  }
 }
 
 html {
@@ -31,7 +54,9 @@ body {
   min-width: 320px;
   background: #fbf5ea;
   font-family: var(--font-sans);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
   overflow-x: clip;
 }
 
