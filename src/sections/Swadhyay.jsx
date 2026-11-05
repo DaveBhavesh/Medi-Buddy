@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { getPersonPhoto } from "../lib/people";
 import { swadhyay } from "../data/sections";
+
+const WATCH_VIDEO_ID = "LVgOeuncfik";
 
 /**
  * Swadhyay Yog banner (client design): yellow band; brown rounded panel with a photo of Patriji
@@ -10,6 +13,7 @@ import { swadhyay } from "../data/sections";
 export default function Swadhyay() {
   const { title, by, photo, photoAlt, quote, quoteBy, quoteBySlug, quoteByAsset, watch } = swadhyay;
   const authorPhoto = getPersonPhoto(quoteBySlug, quoteByAsset);
+  const [playing, setPlaying] = useState(false);
 
   return (
     <section id="swadhyay" className="bg-cream py-10 sm:py-16">
@@ -31,15 +35,38 @@ export default function Swadhyay() {
                     className="h-full w-full object-cover object-top"
                   />
                 </div>
-                <a
-                  href={watch.href}
-                  className="absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-sm font-semibold text-night shadow-md sm:left-6 sm:top-6 lg:left-8 lg:top-8 lg:text-base"
-                >
-                  {watch.label}
-                  <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
-                    <path d="M6 4v16l14-8z" />
-                  </svg>
-                </a>
+                {playing ? (
+                  // "watch" plays the video right here, inside the panel, in place of the photo.
+                  // Desktop: stops short of the right side, which the white title panel covers.
+                  <div className="absolute inset-y-0 left-0 right-0 z-20 bg-black md:right-[35%]">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${WATCH_VIDEO_ID}?autoplay=1&rel=0&playsinline=1`}
+                      title="Swadhyay Yog by Brahmarshi Patriji"
+                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setPlaying(false)}
+                      aria-label="Close video"
+                      className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/90 text-xl leading-none text-black shadow-md hover:bg-white sm:right-6 sm:top-6"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setPlaying(true)}
+                    className="absolute left-4 top-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-1.5 text-sm font-semibold text-night shadow-md sm:left-6 sm:top-6 lg:left-8 lg:top-8 lg:text-base"
+                  >
+                    {watch.label}
+                    <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true">
+                      <path d="M6 4v16l14-8z" />
+                    </svg>
+                  </button>
+                )}
               </div>
 
               {/* Yellow copy of the swoosh, nudged left: draws the gap along the curve. */}

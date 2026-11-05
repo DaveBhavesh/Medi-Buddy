@@ -120,7 +120,7 @@ export default function AuthorCard({ author, tone }) {
 
   return (
     <article
-      className="group relative isolate aspect-[3/4] w-full overflow-hidden rounded-2xl bg-neutral-900 text-white shadow-lg shadow-black/10 transition-shadow duration-300 hover:shadow-2xl [container-type:inline-size]"
+      className="group relative isolate aspect-[2/3] w-full overflow-hidden rounded-2xl bg-neutral-900 text-white shadow-lg shadow-black/10 transition-shadow duration-300 hover:shadow-2xl [container-type:inline-size]"
       onPointerEnter={onEnter}
       onPointerLeave={onLeave}
     >
@@ -187,13 +187,13 @@ export default function AuthorCard({ author, tone }) {
         aria-label={`About ${name}`}
         inert={!open}
         onKeyDown={(event) => event.key === "Escape" && close()}
-        className={`absolute inset-0 z-20 flex flex-col bg-black/65 p-4 backdrop-blur-[3px] transition duration-300 ease-out sm:p-5 ${
+        className={`absolute inset-0 z-20 flex flex-col bg-black/85 p-4 backdrop-blur-[6px] backdrop-grayscale transition duration-300 ease-out sm:p-5 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
         <h3 className="pr-12 text-xl font-black leading-tight sm:text-2xl">{name}</h3>
         <div
-          className={`no-scrollbar mt-3 flex-1 overflow-y-auto overscroll-contain pr-1 text-sm leading-6 text-white/90 transition duration-300 ease-out ${
+          className={`no-scrollbar mt-3 flex-1 overflow-y-auto overscroll-contain pr-1 text-[15px] font-medium leading-6 text-white transition duration-300 ease-out ${
             open ? "translate-y-0 delay-75" : "translate-y-2"
           }`}
         >

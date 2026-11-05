@@ -10,10 +10,14 @@ import { journey } from "../data/content";
 // Long numbers get a smaller size so they always fit the card (cqw = % of the card's width).
 const numberSize = (value) => `${Math.min(38, 90 / (value.length * 0.5))}cqw`;
 
+const WATCH_URL = "https://www.youtube.com/watch?v=LVgOeuncfik";
+
 function WatchPill({ color, className }) {
   return (
     <a
-      href="#explore"
+      href={WATCH_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       style={{ backgroundColor: color }}
       className={`absolute top-3 z-10 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1 text-sm font-semibold text-white shadow-md sm:top-4 ${className}`}
     >
@@ -29,7 +33,7 @@ function JourneyRow({ item, index }) {
   const flip = index % 2 === 1; // odd rows: number card on the left, photo on the right
   return (
     <li
-      className={`relative sm:aspect-[100/36.75] ${index > 0 ? "mt-6 sm:-mt-[4.9%]" : ""}`}
+      className={`relative sm:aspect-[100/36.75] ${index > 0 ? "mt-6 sm:mt-[2%]" : ""}`}
     >
       {/* Photo (49% wide) */}
       <div

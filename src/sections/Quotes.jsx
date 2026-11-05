@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Portrait from "../components/Portrait";
+import { getImageColor } from "../lib/imageColor";
+import { getPersonPhoto } from "../lib/people";
 import useDragScroll from "../lib/useDragScroll";
 import { quotes } from "../data/quotes";
 
@@ -28,6 +30,16 @@ export default function Quotes() {
     return () => window.clearTimeout(id);
   }, [index, paused, count]);
 
+  // The card takes on the selected person's photo colour (falls back to orchid without a photo).
+  const [bgColor, setBgColor] = useState(null);
+  useEffect(() => {
+    let current = true;
+    getImageColor(getPersonPhoto(quotes[index].slug)).then((color) => current && setBgColor(color));
+    return () => {
+      current = false;
+    };
+  }, [index]);
+
   // Keep the active thumbnail in view when the row scrolls (phones), without moving the page.
   useEffect(() => {
     const row = thumbsRef.current;
@@ -47,11 +59,18 @@ export default function Quotes() {
     thumbsRef.current?.children[next]?.focus();
   };
 
+  // Desktop: the whole section (padding + quote card + the people row under it) fills one screen;
+  // the card's height is the screen minus ~14rem for those.
   return (
-    <section id="quotes" className="bg-cream pb-10 pt-10 sm:pb-16 sm:pt-16" aria-label="Inspirational quotes">
+    <section
+      id="quotes"
+      className="bg-cream pb-10 pt-10 sm:pb-16 sm:pt-16 md:flex md:min-h-svh md:flex-col md:justify-center"
+      aria-label="Inspirational quotes"
+    >
       <div className="w-full px-5">
         <div
-          className="relative grid overflow-hidden rounded-[1.5rem] bg-night-2 text-white sm:rounded-[2.25rem]"
+          className="relative grid overflow-hidden rounded-[1.5rem] bg-orchid text-white transition-colors duration-700 sm:rounded-[2.25rem]"
+          style={bgColor ? { backgroundColor: bgColor } : undefined}
           role="group"
           aria-roledescription="carousel"
           aria-label="Inspirational quotes"
@@ -68,7 +87,7 @@ export default function Quotes() {
                 aria-label={`${i + 1} of ${count}: ${item.name}`}
                 aria-hidden={!active}
                 inert={!active}
-                className={`m-0 grid transition-opacity duration-700 ease-out [grid-area:1/1] md:min-h-[clamp(26rem,36vw,38rem)] md:grid-cols-3 ${
+                className={`m-0 grid transition-opacity duration-700 ease-out [grid-area:1/1] md:min-h-[max(26rem,calc(100svh-14rem))] md:grid-cols-3 ${
                   active ? "z-10 opacity-100" : "opacity-0"
                 }`}
               >
@@ -89,10 +108,9 @@ export default function Quotes() {
                         lazy={i > 0}
                         alt={item.name}
                         position="object-[50%_20%]"
-                        className="contrast-[1.08] grayscale"
+                        className="brightness-105"
                       />
                     </div>
-                    <div className="absolute inset-0 bg-night-2 opacity-60 mix-blend-color" aria-hidden="true" />
                   </div>
                   <figcaption className="absolute inset-x-0 bottom-0 px-5 pb-5 sm:px-7 sm:pb-7">
                     <p className="text-xl font-black leading-tight sm:text-2xl">{item.name}</p>
@@ -160,7 +178,7 @@ export default function Quotes() {
                     className={`block h-14 w-14 overflow-hidden rounded-full ring-4 ring-cream transition duration-300 [container-type:inline-size] sm:h-16 sm:w-16 lg:h-20 lg:w-20 ${
                       active
                         ? "scale-110 outline-2 outline-offset-2 outline-amber-500"
-                        : "opacity-60 grayscale group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+                        : "brightness-105 group-hover:scale-105 group-hover:brightness-110"
                     }`}
                   >
                     <Portrait slug={item.slug} name={item.name} tone={i} alt="" small position="object-[50%_20%]" />

@@ -11,7 +11,8 @@ function MeditatorGraphic({ photo, photoAlt, figure, figureAlt }) {
           alt={photoAlt}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[50%_70%] grayscale"
+          // Starts below the orange wave (not behind it) so both faces in the photo stay visible.
+          className="absolute inset-x-0 bottom-0 top-[42%] h-[58%] w-full object-cover object-[50%_30%] grayscale"
         />
         <div className="absolute inset-0 bg-black/20" />
         <svg
